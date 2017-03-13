@@ -1,0 +1,8 @@
+<%= simple_form_for [@villa] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :price %>
+
+  <%= f.submit "add a villa", class: "btn btn-primary" %>
+<% end %>
