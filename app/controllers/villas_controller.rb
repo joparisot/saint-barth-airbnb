@@ -9,7 +9,7 @@ def create
   @villa = Villa.new(villa_params)
   @villa.user = current_user
   @villa.save
-  redirect_to villa(@villa)
+  redirect_to villa_path(@villa)
 end
 
 private
