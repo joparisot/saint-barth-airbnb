@@ -5,10 +5,19 @@ def new
 end
 
 def create
-
   @villa = Villa.new(villa_params)
   @villa.user = current_user
   @villa.save
+  redirect_to villa_path(@villa)
+end
+
+def edit
+  @villa = Villa.find(params[:id])
+end
+
+def update
+  @villa = Villa.find(params[:id])
+  @villa.update(villa_params)
   redirect_to villa_path(@villa)
 end
 
