@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313135738) do
+ActiveRecord::Schema.define(version: 20170313144724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "villa_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "number_of_guests"
+    t.string   "status"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
+    t.index ["villa_id"], name: "index_bookings_on_villa_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -36,4 +49,29 @@ ActiveRecord::Schema.define(version: 20170313135738) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "villas", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.float    "price"
+    t.integer  "number_of_guests"
+    t.integer  "number_of_beds"
+    t.string   "category"
+    t.boolean  "pool"
+    t.boolean  "heated_pool"
+    t.integer  "number_of_bathrooms"
+    t.integer  "number_of_rooms"
+    t.time     "arrival_time"
+    t.boolean  "jacuzzi"
+    t.boolean  "parking"
+    t.boolean  "wifi"
+    t.boolean  "smoking_allowed"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "address"
+    t.index ["user_id"], name: "index_villas_on_user_id", using: :btree
+  end
+
+  add_foreign_key "bookings", "users"
+  add_foreign_key "bookings", "villas"
+  add_foreign_key "villas", "users"
 end
