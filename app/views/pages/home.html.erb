@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="wrapper text-center">
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(51,51,51,0.8) 0%, rgba(13,11,13,0.8) 50%), url(<%= image_path "Background.jpg" %>);">
+    <div class="banner-content">
+      <h1>Luxury Vacation</h1>
+      <p>The most amazing vacation of your life awaits</p>
+      <%= link_to "EXPLORE", villas_path, class: "btn btn-medium"  %>
+    </div>
+  </div>
+</div>
