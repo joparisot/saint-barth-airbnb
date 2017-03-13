@@ -1,29 +1,38 @@
 class VillasController < ApplicationController
-  def index
-    @villa = Villa.all
-  end
+def index
+  @villa = Villa.all
+end
 
-  def show
-    @villa = Villa.find(params[:id])
-  end
+def show
+  @villa = Villa.find(params[:id])
+end
 
+def new
+  @villa = Villa.new
+end
 
-  def new
-    @villa = Villa.new
-  end
+def create
+  @villa = Villa.new(villa_params)
+  @villa.user = current_user
+  @villa.save
+  redirect_to villa_path(@villa)
+end
 
-  def create
+def edit
+  @villa = Villa.find(params[:id])
+end
 
-    @villa = Villa.new(villa_params)
-    @villa.user = current_user
-    @villa.save
-    redirect_to villa_path(@villa)
-  end
+def update
+  @villa = Villa.find(params[:id])
+  @villa.update(villa_params)
+  redirect_to villa_path(@villa)
+end
 
-  private
+private
 
-  def villa_params
-    params.require(:villa).permit(:name, :address, :price)
-  end
+def villa_params
+  params.require(:villa).permit(:name, :address, :price, photos: [])
+end
+
 
 end
