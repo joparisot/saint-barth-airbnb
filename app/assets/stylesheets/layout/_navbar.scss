@@ -22,6 +22,7 @@
 /* Navbar logo */
 .navbar-wagon-brand img {
   width: 50px;
+  color: $gold;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -55,12 +56,13 @@
   border-radius: 20em;
   line-height: 40px;
   background-color: $gold;
-  color: white;
+  color: black;
   font-size: 14px;
   border: 2px solid $gold;
 }
 .navbar-wagon-button:hover {
-  color: white;
+  color: black;
+  font-weight: bold;
   background: $light-brown;
   border-color: $light-brown;
 }
@@ -108,7 +110,7 @@
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
-  color: $beige !important;
+  color: $brown!important;
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
