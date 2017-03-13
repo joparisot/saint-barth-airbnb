@@ -17,7 +17,6 @@ end
 
 def update
   @villa = Villa.find(params[:id])
-  @villa.user = current_user
   @villa.update(villa_params)
   redirect_to villa_path(@villa)
 end
