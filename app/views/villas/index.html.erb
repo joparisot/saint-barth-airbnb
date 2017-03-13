@@ -1,23 +1,44 @@
+<%= link_to "Add a villa", new_villa_path %>
 <div class="container">
   <% @villa.each do |villa| %>
-    <div class="row">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('<%= cl_image_path @villa.photos.first, height: 300, width: 400, crop: :fill %>')">>
+    <% if villa.photos? %>
+      <div class="row">
         <div class="col-xs-6">
-          <div class="card-category">
-            <% villa.price %>
-          </div>
-          <div class="card-description">
-            <h2>
-              <% villa.name %>
-            </h2>
-            <p>
-              <% villa.number_of_guests %>
-            </p>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+             url('<%= cl_image_path @villa.photos.first, height: 300, width: 400, crop: :fill %>')">
+            <div class="card-category">
+              <%= villa.price %>
+            </div>
+            <div class="card-description">
+              <h2>
+                <%= villa.name %>
+              </h2>
+              <p>
+                <%= villa.number_of_guests %>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <% else %>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+           url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
+            <div class="card-category">
+              <%= villa.price %>
+            </div>
+            <div class="card-description">
+              <h2>
+                <%= villa.name %>
+              </h2>
+              <p>
+                <%= villa.number_of_guests %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
-<%  %>

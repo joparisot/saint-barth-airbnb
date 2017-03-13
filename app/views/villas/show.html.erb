@@ -1,25 +1,26 @@
 <div class="container">
-  <% if @villa.photo? %>
+  <% if @villa.photos? %>
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
        url('<%= cl_image_path @villa.photos.first, height: 300, width: 400, crop: :fill %>')">
       <div class="col-xs-6">
-    <%= cl_image_tag @villa.photo.path, width: 200, height: 300, crop: :fill %>
+        <%= cl_image_tag @villa.photo.path, width: 200, height: 300, crop: :fill %>
+      <p><%= @villa.name %></p>
+      <p><%= @villa.price %></p>
+      <p><%= @villa.number_of_guests %></p>
+      <p><%= @villa.number_of_beds %></p>
+      <p><%= @villa.category %></p>
+      <p><%= @villa.address %></p>
+      <p><%= @villa.pool %></p>
+      <p><%= @villa.heated_pool %></p>
+      <p><%= @villa.number_of_rooms %></p>
+      <p><%= @villa.number_of_bathrooms %></p>
+      <p><%= @villa.arrival_time %></p>
+      <p><%= @villa.jacuzzi %></p>
+      <p><%= @villa.parking %></p>
+      <p><%= @villa.wifi %></p>
+      <p><%= @villa.smoking_allowed %></p>
+
   <% end %>
   </div>
 </div>
 
-<p><% @villa.name %></p>
-<p><% @villa.price %></p>
-<p><% @villa.number_of_guests %></p>
-<p><% @villa.number_of_beds %></p>
-<p><% @villa.category %></p>
-<p><% @villa.address %></p>
-<p><% @villa.pool %></p>
-<p><% @villa.heated_pool %></p>
-<p><% @villa.number_of_rooms %></p>
-<p><% @villa.number_of_bathrooms %></p>
-<p><% @villa.arrival_time %></p>
-<p><% @villa.jacuzzi %></p>
-<p><% @villa.parking %></p>
-<p><% @villa.wifi %></p>
-<p><% @villa.smoking_allowed %></p>
