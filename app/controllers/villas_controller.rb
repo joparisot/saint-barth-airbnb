@@ -7,20 +7,24 @@ class VillasController < ApplicationController
     @villa = Villa.find(params[:id])
   end
 
+def create
+  @villa = Villa.new(villa_params)
+  @villa.user = current_user
+  @villa.save
+  redirect_to villa_path(@villa)
+end
 
-  def new
-    @villa = Villa.new
-  end
+def edit
+  @villa = Villa.find(params[:id])
+end
 
-  def create
+def update
+  @villa = Villa.find(params[:id])
+  @villa.update(villa_params)
+  redirect_to villa_path(@villa)
+end
 
-    @villa = Villa.new(villa_params)
-    @villa.user = current_user
-    @villa.save
-    redirect_to villa_path(@villa)
-  end
-
-  private
+private
 
   def villa_params
     params.require(:villa).permit(:name, :address, :price)
