@@ -1,26 +1,46 @@
 <div class="container">
   <% if @villa.photos? %>
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+    <div class="col-xs-6">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
        url('<%= cl_image_path @villa.photos.first, height: 300, width: 400, crop: :fill %>')">
-      <div class="col-xs-6">
-        <%= cl_image_tag @villa.photos.path, width: 200, height: 300, crop: :fill %>
-      <p><%= @villa.name %></p>
-      <p><%= @villa.price %></p>
-      <p><%= @villa.number_of_guests %></p>
-      <p><%= @villa.number_of_beds %></p>
-      <p><%= @villa.category %></p>
-      <p><%= @villa.address %></p>
-      <p><%= @villa.pool %></p>
-      <p><%= @villa.heated_pool %></p>
-      <p><%= @villa.number_of_rooms %></p>
-      <p><%= @villa.number_of_bathrooms %></p>
-      <p><%= @villa.arrival_time %></p>
-      <p><%= @villa.jacuzzi %></p>
-      <p><%= @villa.parking %></p>
-      <p><%= @villa.wifi %></p>
-      <p><%= @villa.smoking_allowed %></p>
-
+        <p><%= @villa.name %></p>
+        <p><%= @villa.price %></p>
+        <p><%= @villa.number_of_guests %></p>
+        <p><%= @villa.number_of_beds %></p>
+        <p><%= @villa.category %></p>
+        <p><%= @villa.address %></p>
+        <p><%= @villa.pool %></p>
+        <p><%= @villa.heated_pool %></p>
+        <p><%= @villa.number_of_rooms %></p>
+        <p><%= @villa.number_of_bathrooms %></p>
+        <p><%= @villa.arrival_time %></p>
+        <p><%= @villa.jacuzzi %></p>
+        <p><%= @villa.parking %></p>
+        <p><%= @villa.wifi %></p>
+        <p><%= @villa.smoking_allowed %></p>
+      </div>
+    </div>
+  <% else %>
+    <div class="col-xs-6">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+       url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
+        <p><%= @villa.name %></p>
+        <p><%= @villa.price %></p>
+        <p><%= @villa.number_of_guests %></p>
+        <p><%= @villa.number_of_beds %></p>
+        <p><%= @villa.category %></p>
+        <p><%= @villa.address %></p>
+        <p><%= @villa.pool %></p>
+        <p><%= @villa.heated_pool %></p>
+        <p><%= @villa.number_of_rooms %></p>
+        <p><%= @villa.number_of_bathrooms %></p>
+        <p><%= @villa.arrival_time %></p>
+        <p><%= @villa.jacuzzi %></p>
+        <p><%= @villa.parking %></p>
+        <p><%= @villa.wifi %></p>
+        <p><%= @villa.smoking_allowed %></p>
+      </div>
+    </div>
   <% end %>
-  </div>
 </div>
 

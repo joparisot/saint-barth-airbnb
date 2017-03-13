@@ -11,7 +11,7 @@
             </div>
             <div class="card-description">
               <h2>
-                <%= villa.name %>
+                <%= link_to villa.name, villa_path(villa) %>
               </h2>
               <p>
                 <%= villa.number_of_guests %>
@@ -30,7 +30,7 @@
             </div>
             <div class="card-description">
               <h2>
-                <%= villa.name %>
+                <%= link_to villa.name, villa_path(villa) %>
               </h2>
               <p>
                 <%= villa.number_of_guests %>
