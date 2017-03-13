@@ -1,11 +1,15 @@
 class VillasController < ApplicationController
-  def index
-    @villa = Villa.all
-  end
+def index
+  @villa = Villa.all
+end
 
-  def show
-    @villa = Villa.find(params[:id])
-  end
+def show
+  @villa = Villa.find(params[:id])
+end
+
+def new
+  @villa = Villa.new
+end
 
 def create
   @villa = Villa.new(villa_params)
