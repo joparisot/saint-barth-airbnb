@@ -13,6 +13,9 @@ a:hover {
     background-color: $beige;
     cursor: hand;
     cursor: pointer;
+    .card-hover{
+      opacity: 0.9;
+    }
   };
 }
 
@@ -32,9 +35,6 @@ a:hover {
   align-items: center;
   justify-content: space-around;
   font-size: 40px;
-  &:hover{
-    opacity: 0.9;
-  };
 }
 
 .card-description {
