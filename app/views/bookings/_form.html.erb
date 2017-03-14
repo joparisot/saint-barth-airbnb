@@ -1,7 +1,7 @@
 <%= simple_form_for [@villa, @booking] do |f| %>
   <%= f.error_notification %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
+  <%= f.input :start_date, as: :string, input_html:{class: "datepicker"} %>
+  <%= f.input :end_date, as: :string, input_html:{class: "datepicker"} %>
   <%= f.input :number_of_guests%>
 
   <%= f.submit "Confirm booking", class: "btn btn-primary" %>

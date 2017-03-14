@@ -22,7 +22,13 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
+#facebook connect
 gem 'omniauth-facebook'
+
+#date picker for forms
+source "https://rails-assets.org" do
+  gem 'rails-assets-bootstrap-datepicker'
+end
 
 group :development, :test do
   gem 'binding_of_caller'
