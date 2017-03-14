@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   get 'villas/index'
 
   get 'villas/show'
@@ -9,6 +11,6 @@ Rails.application.routes.draw do
  resources :villas do
    resources :bookings, only: [:new, :create]
  end
- resources :users, only: [:edit, :update, :destroy]
+ resources :users, only: [:edit, :update, :destroy, :show]
  mount Attachinary::Engine => "/attachinary"
 end
