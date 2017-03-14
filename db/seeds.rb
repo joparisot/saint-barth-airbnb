@@ -6,6 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+if !Villa.find_by(name:"Tiwa").nil?
+  Villa.find_by(name:"Tiwa").destroy
+end
+
+if !Villa.find_by(name:"Walhalla").nil?
+  Villa.find_by(name:"Walhalla").destroy
+end
+
+
 urls_walhahlla1 = [
   'https://drive.google.com/open?id=0B4yc0IuB7OxDaXExZEY5RDFtVFU',
   # 'https://drive.google.com/open?id=0B4yc0IuB7OxDbUJaZ0FnS1JqR1E',
@@ -19,10 +28,29 @@ urls_walhahlla1 = [
 #   'https://drive.google.com/open?id=0B4yc0IuB7OxDeFU5LWlwWU1kcEU'
 # ]
 
-test1 = Villa.new(name: "Whalhahlla", price: "#", address: "test address")
-test1.save!
-test1.photo_url = 'http://res.cloudinary.com/joparisot/image/upload/v1489428360/fkihbr1rr4oavk7ljtn9.jpg'
+tiwa = Villa.new(name: "Tiwa",
+                 price: "381",
+                 address: "Pointe Milou",
+                 description: "Tiwa is a highly favored and private villa located on the hillside of Pointe Milou. It offers a simply stunning ocean view . Guests enjoy the spacious white villa with a pool, its complete privacy and the size of the estate.",
+                 number_of_guests: 4,
+                 number_of_rooms: 2,
+                 number_of_beds: 2,
+                 pool: true,
+)
+tiwa.save!
+tiwa.photo_url = 'https://a0.muscache.com/im/pictures/42612027/96c20997_original.jpg?aki_policy=xx_large'
 
+tiwa = Villa.new(name: "Walhalla",
+                 price: "618",
+                 address: "Pointe Milou",
+                 description: "Walhalla is a highly favored and private villa located on the hillside of Pointe Milou. It offers a simply stunning ocean view from all the rooms. Guests enjoy the spacious white villa with a pool, its complete privacy and the size of the estate.",
+                 number_of_guests: 8,
+                 number_of_rooms: 4,
+                 number_of_beds: 4,
+                 pool: true,
+)
+tiwa.save!
+tiwa.photo_url = 'https://a0.muscache.com/im/pictures/96698740/65497b9a_original.jpg?aki_policy=xx_large'
 
 # tiwa = Villa.new(name: "tiwa", price: "#", address: "test address")
 # tiwa.save!
