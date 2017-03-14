@@ -1,7 +1,7 @@
 /* Main class */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: black;
   transition: all 0.3s ease;
   display: flex;
   height: 70px;
@@ -22,6 +22,7 @@
 /* Navbar logo */
 .navbar-wagon-brand img {
   width: 50px;
+  color: $gold;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -54,15 +55,16 @@
   padding: 0 20px;
   border-radius: 20em;
   line-height: 40px;
-  background-color: #D23333;
-  color: white;
+  background-color: $gold;
+  color: black;
   font-size: 14px;
-  border: 2px solid #D23333;
+  border: 2px solid $gold;
 }
 .navbar-wagon-button:hover {
-  color: white;
-  background: #D23333;
-  border-color: #ac2626;
+  color: black;
+  font-weight: bold;
+  background: $light-brown;
+  border-color: $light-brown;
 }
 
 /* Navbar search form */
@@ -75,7 +77,7 @@
 }
 .navbar-wagon-search-btn {
   line-height: 40px;
-  color: #E6E6E6;
+  color: $beige;
   border: none;
   background: transparent;
   position: absolute;
@@ -88,7 +90,7 @@
   transition: all 0.15s ease;
   line-height: 40px;
   font-weight: lighter;
-  color: #666666;
+  color: $beige;
   border: 1px solid #E6E6E6;
   border-radius: 5px;
   padding: 0 10px;
@@ -108,7 +110,7 @@
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
-  color: #999999 !important;
+  color: $brown!important;
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
