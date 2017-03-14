@@ -1,0 +1,34 @@
+#profilep {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+}
+
+#profile-info {
+  padding-left: 0px;
+  & ul {
+  list-style: none;
+  padding-left: 0px;
+  }
+}
+
+.showcontainer {
+  position: relative;
+  display: flex;
+  height: 400px;
+  justify-content: space-between;
+  padding-left:30px;
+  padding-right: 30px;
+  & h2 {
+  color: $gold;
+  }
+}
+
+
+
+.showcontainer .bottom-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
