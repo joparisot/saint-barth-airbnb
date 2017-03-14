@@ -1,49 +1,29 @@
 <%= link_to "Add a villa", new_villa_path %>
 
-<div class="row">
-  <div class="col-xs-12">
-    <div class="filters">
+<% @villa.each do |villa| %>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div class="card-wrapper">
+        <%= link_to villa_path(villa) do %>
 
-    </div>
-  </div>
-</div>
-
-  <% @villa.each do |villa| %>
-    <% if villa.photo? %>
-      <div class="row">
-        <div class="col-xs-7">
-          <div class="card-wrapper">
+          <% if villa.photo? %>
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
                url('<%= cl_image_path villa.photo.path, height: 300, width: 400, crop: :fill %>')">
-              <div class="card-category">
-                <%= villa.price %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% else %>
-      <div class="row">
-        <div class="col-xs-7">
-          <%= link_to villa_path(villa) do %>
-          <div class="card-wrapper">
+          <% else %>
             <div class="card" style="background-image:
              url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
-            </div>
-            <div class="villa-description">
-              <div class="villa-name">
-                <h2>
-                  <%= link_to villa.name, villa_path(villa) %>
-                </h2>
-                <p><%= villa.address %></p>
-              </div>
-              <div class="villa-price">
-                <p><%= villa.price.to_i %>€</p>
-              </div>
-            </div>
-          </div>
           <% end %>
-        </div>
+            <div class="card-hover">check it out!</div>
+          </div>
+
+          <div class="card-description">
+            <div class="villa-name"><%= villa.name %></div>
+            <div class="villa-location"><%= villa.address %></div>
+            <div class="villa-price"><%= villa.price.to_i %>€</div>
+          </div>
+
+        <% end %>
       </div>
-    <% end %>
-  <% end %>
+    </div>
+  </div>
+<% end %>
