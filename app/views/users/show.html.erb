@@ -1,85 +1,53 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-2">
-      <h1> Your Profile Info </h1>
-      <p>Name: <%= @user.first_name %> <%= @user.last_name %> </p>
-    </div>
-    <div class="col-xs-5">
-      <h1> Your Previous Bookings </h1>
-    </div>
-    <div class="col-xs-5">
-      <h1> Your Villas </h1>
-       <% @villas.each do |villa| %>
-          <% if villa.photo? %>
-            <div class="row">
-              <div class="col-xs-6">
-                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                 url('<%= cl_image_path villa.photo.path, height: 300, width: 400, crop: :fill %>')">
-                    <div class="card-description">
-                      <h2>
-                        <%= villa.name %>
-                      </h2>
-                      <p>
-                        <%= villa.address %>
-                      </p>
-                    </div>
-                    <div class="card-category">
-                      <%= villa.price %>
-                    </div>
-                  <p><%= villa.number_of_beds %></p>
-                  <p><%= villa.category %></p>
-                  <p><%= villa.number_of_guests %></p>
-                  <p><%= villa.pool %></p>
-                  <p><%= villa.heated_pool %></p>
-                  <p><%= villa.number_of_rooms %></p>
-                  <p><%= villa.number_of_bathrooms %></p>
-                  <p><%= villa.arrival_time %></p>
-                  <p><%= villa.jacuzzi %></p>
-                  <p><%= villa.parking %></p>
-                  <p><%= villa.wifi %></p>
-                  <p><%= villa.smoking_allowed %></p>
-                </div>
-              </div>
+<div class="wrapper bg-light-background padded" id="user-show">
+    <div class="row">
+      <div class="container bg-white">
+        <div class="showcontainer">
+          <div class="profile">
+            <div id ="profile-info">
+              <h2> Profile Info </h2>
+              <img src="http://placehold.it/100x100" id = "profilep" >
+              <p>
+              <ul>
+                <li><strong>Name:</strong> <%= @user.first_name %> <%= @user.last_name %></li>
+                <li><strong>Email:</strong> <%= @user.email %></li>
+              </ul>
+              </p>
             </div>
-          <% else %>
-            <div class="row">
-              <div class="col-xs-6">
-                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                 url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
-                  <div class="card-description">
-                    <h2>
-                      <%= villa.name %>
-                    </h2>
-                    <p>
-                      <%= villa.address %>
-                    </p>
-                  </div>
-                  <div class="card-category">
-                    <%= villa.price %>
-                  </div>
-                  <p><%= villa.number_of_beds %></p>
-                  <p><%= villa.category %></p>
-                  <p><%= villa.number_of_guests %></p>
-                  <p><%= villa.pool %></p>
-                  <p><%= villa.heated_pool %></p>
-                  <p><%= villa.number_of_rooms %></p>
-                  <p><%= villa.number_of_bathrooms %></p>
-                  <p><%= villa.arrival_time %></p>
-                  <p><%= villa.jacuzzi %></p>
-                  <p><%= villa.parking %></p>
-                  <p><%= villa.wifi %></p>
-                  <p><%= villa.smoking_allowed %></p>
-                </div>
+          <%= link_to "Edit Info", user_path, method: :patch, class: "navbar-wagon-link" %>
+          </div>
+          <div class="text-center">
+            <h2> My Listings </h2>
+              <% i=0 %>
+              <% @villas.each do |villa| %>
+              <div>
+                <% i+=1 %>
+                <p>Listing <%=i%> <%= link_to villa.name, villa_path(villa) %></p>
               </div>
-            </div>
-          <% end %>
-         <% end %>
+              <% end %>
+              <div class="bottom-button">
+                <%= link_to "Add Listing", new_villa_path, class: "navbar-wagon-button btn"%>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container bg-white">
+      <div class="col-xs-12">
+        <h2> My Bookings </h2>
+        <% i=0 %>
+        <% @villas.each do |villa| %>
+        <div>
+          <% i+=1 %>
+          <p>Listing <%=i%> <%= link_to villa.name, villa_path(villa) %></p>
+        </div>
+        <% end %>
+        <%= link_to "Book Now", villas_path, class: "navbar-wagon-button btn"%>
+      </div>
     </div>
 
-  <div class="row" id="show-back-link">
-    <%= link_to "Back", villas_path %>
+  <div class="container">
+    <div class="row" id="show-back-link">
+      <%= link_to "Back", villas_path %>
+    </div>
   </div>
-</div>
-
-</div>
 </div>
