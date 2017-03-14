@@ -1,0 +1,8 @@
+<%= simple_form_for [@villa, @booking] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :number_of_guests%>
+
+  <%= f.submit "Confirm booking", class: "btn btn-primary" %>
+<% end %>
