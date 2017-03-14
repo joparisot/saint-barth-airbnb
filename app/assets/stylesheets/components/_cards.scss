@@ -2,90 +2,74 @@ a:hover {
   text-decoration: none;
 }
 
-.card-wrapper h1 {
-  padding-top: 0;
-}
-
-.filters {
-  height: 200px;
-  background-color: $light-background;
-  margin-bottom: 40px
-}
-
 .card-wrapper {
   background-color: $light-background;
-  height: 450px;
-  margin-bottom: 50px;
-  margin-left: 100px;
+  height: 420px;
   border-radius: 5px;
   padding-bottom: 0;
-}
-
-.card-wrapper:hover {
-  background-color: $beige;
-  cursor: hand;
-  cursor: pointer;
-}
-
-.card:hover {
-  cursor: hand;
-  cursor: pointer;
-}
-
-.card-wrapper p {
-  color: $card-font-color;
-}
-
-.villa-description {
   position: relative;
-  height: 100px;
+  margin-left: 10px;
+  &:hover {
+    background-color: $beige;
+    cursor: hand;
+    cursor: pointer;
+    .card-hover{
+      opacity: 0.9;
+    }
+  };
 }
-
-.villa-name {
-  position: absolute;
-  top: 0px;
-  left: 10px;
-}
-
-.villa-price {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-}
-
 
 .card {
   height: 350px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   color: white;
-  position: relative;
   border-radius-top: 10px;
 }
+
+.card-hover {
+  height: 350px;
+  opacity: 0;
+  background-color: $beige;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 40px;
+}
+
+.card-description {
+  position: absolute;
+  height: 50px;
+  bottom: 35px;
+  left: 10px;
+  right: 10px;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.villa-name {
+  display: flex;
+  align-items: center;
+}
+
+.villa-price {
+  display: flex;
+  align-items: center;
+}
+
+.villa-location {
+  display: flex;
+  align-items: center;
+}
+
 .card-user {
   position: absolute;
   right: 10px;
   top: 10px;
 }
-.card-category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 10px;
-  text-transform: uppercase;
-}
 
-.card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-description h2 {
-  font-size: 24px;
-}
-.card-description p {
-  font-size: 13px;
-  }
 .card-link {
   position: absolute;
   top: 0;
@@ -96,6 +80,7 @@ a:hover {
   background: black;
   opacity: 0;
 }
+
 .card-link:hover{
   opacity: 0.1;
 }
