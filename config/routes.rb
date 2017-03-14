@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   get 'villas/index'
 
   get 'villas/show'
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
  resources :villas do
    resources :bookings, only: [:new, :create]
  end
+ resources :users, only: [:edit, :update, :destroy, :show]
  mount Attachinary::Engine => "/attachinary"
  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
  # resources :users, only: [:edit, :update, :destroy]

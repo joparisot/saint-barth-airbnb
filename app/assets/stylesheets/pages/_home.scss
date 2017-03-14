@@ -5,7 +5,7 @@
 .banner {
   height: 100vh;
   background-position: center center;
-  color: #A38F65;
+  color: white;
   text-align: center;
   height: calc(100vh - 70px);
   background-size: cover !important;
@@ -23,13 +23,13 @@
 .banner p {
   font-size: 20px;
   font-weight: lighter;
-  color: rgba(255, 255, 255, 0.7);
+  color: white;
   margin-bottom: 20px;
 }
 
 .btn-medium {
-  color: $gold;
-  border: 1px solid $gold;
+  color: white;
+  border: 1px solid white;
   padding: 10px 15px;
   border-radius: 50px;
   font-weight: lighter;
@@ -38,7 +38,7 @@
 .btn-medium:hover {
   opacity: 1;
   text-decoration: none;
-  color: black;
-  border: 1px solid $gold;
-  background-color: $gold;
+  color: $gold;
+  border: 1px solid white;
+  background-color: white;
 }
