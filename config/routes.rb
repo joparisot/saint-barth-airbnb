@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
-
   get 'villas/index'
 
   get 'villas/show'
