@@ -35,13 +35,17 @@
       <div class="col-xs-12">
         <h2> My Bookings </h2>
         <% i=0 %>
-        <% @villas.each do |villa| %>
+        <% @bookings.each do |booking| %>
         <div>
           <% i+=1 %>
-          <p>Listing <%=i%> <%= link_to villa.name, villa_path(villa) %></p>
+          <p>Booking <%=i %> <%= link_to Villa.find(booking.villa_id).name, villa_path(Villa.find(booking.villa_id)) %>
+            Status <%= booking.status %>
+            Start date <%= booking.start_date%>
+            End date <%= booking.end_date%>
+          </p>
         </div>
         <% end %>
-        <%= link_to "Book Now", villas_path, class: "navbar-wagon-button btn"%>
+        <%= link_to "Book Another", villas_path, class: "navbar-wagon-button btn"%>
       </div>
     </div>
 
