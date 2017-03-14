@@ -42,3 +42,8 @@
 .card-link:hover{
   opacity: 0.1;
 }
+
+#show-back-link {
+  position: relative;
+  padding: 15px;
+}
