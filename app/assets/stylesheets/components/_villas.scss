@@ -31,12 +31,23 @@
   border-bottom: 1px solid #DBDEDE;
 }
 
-#summary-container {
+.summary-container{
+  border-bottom: 1px solid #DBDEDE;
+}
+
+#summary {
   margin-left: 200px;
   margin-right: 450px;
   padding-top: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #DBDEDE;
+  display: flex;
+  justify-content: left;
+
+}
+
+#user-image{
+  padding-top: 25px;
+  padding-right: 50px;
 }
 
 #user-image .img {
@@ -57,11 +68,16 @@
   padding-bottom: 20px;
 }
 
-.villa-description-container {
+#summary .villa-icon-container {
   display: flex;
   justify-content: space-between;
-  padding-top: 20px;
+  padding-top: 5px;
   padding-bottom: 20px;
+  & .villa-icon {
+  height: 50px;
+  width: 70px;
+  padding-right: 15px;
+  }
 }
 
 .villa-features-container {
@@ -78,7 +94,3 @@
   color: $gray;
 }
 
-.villa-icon{
-  height: 40px;
-  width: 40px;
-}
