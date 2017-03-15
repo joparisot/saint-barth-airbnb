@@ -13,13 +13,25 @@
             <div class="card" style="background-image:
              url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
           <% end %>
-            <div class="card-hover">check it out!</div>
+            <div class="card-hover">
+              <h2>check it out!</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat temporibus optio alias quia officiis eos perspiciatis cumque ducimus consequatur exercitationem. Quo velit esse laborum sint libero, voluptatibus sed necessitatibus dolor?</p>
+            </div>
           </div>
 
           <div class="card-description">
-            <div class="villa-name"><%= villa.name %></div>
-            <div class="villa-location"><%= villa.address %></div>
-            <div class="villa-price"><%= villa.price.to_i %>€</div>
+            <div class="villa-name">
+              <i class="fa fa-home" aria-hidden="true"></i>
+              <%= villa.name %>
+            </div>
+            <div class="villa-location">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <%= villa.address %>
+            </div>
+            <div class="villa-price">
+              <i class="fa fa-money" aria-hidden="true"></i>
+              <%= villa.price.to_i %>€/night
+            </div>
           </div>
 
         <% end %>

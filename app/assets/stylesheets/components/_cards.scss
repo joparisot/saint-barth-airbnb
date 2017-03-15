@@ -10,11 +10,16 @@ a:hover {
   position: relative;
   margin-left: 10px;
   &:hover {
-    background-color: $beige;
+    background-color: white;
     cursor: hand;
     cursor: pointer;
     .card-hover{
       opacity: 0.9;
+      display: flex;
+      vertical-align: middle;
+    }
+    .card-description{
+      border: 5px solid $beige;
     }
   };
 }
@@ -30,11 +35,20 @@ a:hover {
 .card-hover {
   height: 350px;
   opacity: 0;
-  background-color: $beige;
+  background-color: white;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  font-size: 40px;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  h2 {
+    font-size: 25px;
+    color: $gold;
+  }
+  p {
+    font-size: $base-size;
+    color:$light-brown;
+    font-family: Open Sans;
+  }
 }
 
 .card-description {
@@ -44,6 +58,7 @@ a:hover {
   left: 10px;
   right: 10px;
   background: white;
+  border:0px solid white;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -51,6 +66,7 @@ a:hover {
 
 .villa-name {
   display: flex;
+  justify-content: space-around;
   align-items: center;
 }
 
