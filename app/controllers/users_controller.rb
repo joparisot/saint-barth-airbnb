@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       villas_id << villa.id
     end
     @bookings = Booking.where(user_id: @user.id)
-    @bookings_as_a_host = Booking.where(villa_id: @villas)
-    # need to find a way to say bookings where villa_id belongs to all the ids from @villas (which are my villas)
+    @bookings_as_a_host = Booking.where(villa_id: villas_id)
+    # I take bookings where villa_id belongs to all the ids from @villas (which are my villas)
   end
 end
