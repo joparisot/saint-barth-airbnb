@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Villa.destroy_all
+
 if !Villa.find_by(name:"Tiwa").nil?
   Villa.find_by(name:"Tiwa").destroy
 end

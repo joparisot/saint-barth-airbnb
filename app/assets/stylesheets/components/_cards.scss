@@ -28,6 +28,22 @@ a:hover {
   };
 }
 
+.infowindow {
+  .card-wrapper {
+    height: 300px;
+    width: 300px;
+  }
+
+  .card {
+    height: 275px;
+    width: 300px;
+  }
+
+  .card-hover {
+    height: 200px;
+  }
+}
+
 .card {
   height: 350px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
@@ -35,6 +51,16 @@ a:hover {
   color: white;
   border-radius-top: 10px;
 }
+
+// .card-wrapper-infowindow {
+//   transition: all 1s ease;
+//   background-color: $light-background;
+//   height: 120px;
+//   border-radius: 5px;
+//   padding-bottom: 0;
+//   position: relative;
+//   margin-left: 10px;
+// }
 
 .card-hover {
   height: 350px;
