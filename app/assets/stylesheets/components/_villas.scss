@@ -46,8 +46,9 @@
 }
 
 #user-image{
-  padding-top: 25px;
+  padding-top: 35px;
   padding-right: 50px;
+  padding-left: 50px;
 }
 
 #user-image .img {
@@ -68,15 +69,27 @@
   padding-bottom: 20px;
 }
 
-#summary .villa-icon-container {
+.villa-icon-container {
   display: flex;
   justify-content: space-between;
   padding-top: 5px;
-  padding-bottom: 20px;
-  & .villa-icon {
+  padding-bottom: 5px;
+  & .villa-icon-card {
+  padding-right: 130px;
+  text-align: center;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  }
+  & .villa-icon{
   height: 50px;
-  width: 70px;
-  padding-right: 15px;
+  width: 50px;
+  }
+  & .villa-last-icon-card{
+  text-align: center;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
   }
 }
 
