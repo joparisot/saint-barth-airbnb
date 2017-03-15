@@ -86,13 +86,36 @@
         </div>
       </div>
     </div>
+    <div class="villa-features-container">
+      <div class="villa-card">
+        <div>
+          Amenities
+        </div>
+      </div>
+      <div class="villa-card">
+        <div>
+          Pool: <strong><%= @villa.pool %></strong>
+        </div>
+        <div>
+          Heated pool: <strong><%= @villa.heated_pool %></strong>
+        </div>
+        <div>
+          Bedrooms: <strong><%= @villa.jacuzzi %></strong>
+        </div>
+        <div>
+          Beds: <strong><%= @villa.parking %></strong>
+        </div>
+      </div>
+      <div class="villa-card">
+        <div>
+          Check-in: <strong><%= @villa.wifi %></strong>
+        </div>
+        <div>
+          Smoking allowed: <strong><%= @villa.smoking_allowed %></strong>
+        </div>
+      </div>
+    </div>
 
-    <strong><%= @villa.pool %></strong>
-    <strong><%= @villa.heated_pool %></strong>
-    <strong><%= @villa.jacuzzi %></strong>
-    <strong><%= @villa.parking %></strong>
-    <strong><%= @villa.wifi %></strong>
-    <strong><%= @villa.smoking_allowed %></strong>
   <div class="row" id="show-back-link">
   <%= link_to "Back", villas_path %>
   </div>
