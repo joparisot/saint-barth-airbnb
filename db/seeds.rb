@@ -14,6 +14,8 @@ if !Villa.find_by(name:"Walhalla").nil?
   Villa.find_by(name:"Walhalla").destroy
 end
 
+Booking.where(villa_id: nil).destroy_all
+
 
 urls_walhahlla1 = [
   'https://drive.google.com/open?id=0B4yc0IuB7OxDaXExZEY5RDFtVFU',
