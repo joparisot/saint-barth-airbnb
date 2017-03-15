@@ -3,6 +3,7 @@ a:hover {
 }
 
 .card-wrapper {
+  transition: all 1s ease;
   background-color: $light-background;
   height: 420px;
   border-radius: 5px;
@@ -10,15 +11,18 @@ a:hover {
   position: relative;
   margin-left: 10px;
   &:hover {
+    transition: all 1s ease;
     background-color: white;
     cursor: hand;
     cursor: pointer;
     .card-hover{
+      transition: all 1s ease;
       opacity: 0.9;
       display: flex;
       vertical-align: middle;
     }
     .card-description{
+      transition: all 1s ease;
       border: 5px solid $beige;
     }
   };
