@@ -45,7 +45,7 @@
 
 }
 
-#user-image{
+#user-image {
   padding-top: 35px;
   padding-right: 50px;
   padding-left: 50px;
@@ -103,7 +103,25 @@
   padding-bottom: 20px;
 }
 
-.villa-card {
-  color: $gray;
+.villa-btn-container {
+  margin-left: 200px;
+  margin-right: 450px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #DBDEDE;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
+
+.villa-btn-container:hover {
+  background-color: $gold;
+  color: white;
+}
+
+#show-back-link{
+  margin-left: 185px;
+  margin-right: 450px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
