@@ -7,6 +7,7 @@ Rails.application.routes.draw do
    resources :bookings, only: [:new, :create]
  end
  post 'bookings/:id/approve', to: 'bookings#approve', as: :approve
+ post 'bookings/:id/reject', to: 'bookings#reject', as: :reject
  resources :users, only: [:edit, :update, :show]
  mount Attachinary::Engine => "/attachinary"
 end
