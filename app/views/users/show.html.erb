@@ -52,6 +52,23 @@
         <%= link_to "Book Another", villas_path, class: "navbar-wagon-button btn"%>
       </div>
     </div>
+    <div class="container bg-white">
+      <div class="col-xs-12">
+        <h2> My Bookings as a host </h2>
+        <% i=0 %>
+        <% @bookings.each do |booking| %>
+        <div>
+          <% i+=1 %>
+          <p>Booking <%=i %> <%= link_to Villa.find(booking.villa_id).name, villa_path(Villa.find(booking.villa_id)) %>
+            Status <%= booking.status %>
+            Start date <%= booking.start_date%>
+            End date <%= booking.end_date%>
+          </p>
+        </div>
+        <% end %>
+        <%= link_to "Book Another", villas_path, class: "navbar-wagon-button btn"%>
+      </div>
+    </div>
 
   <div class="container">
     <div class="row" id="show-back-link">
