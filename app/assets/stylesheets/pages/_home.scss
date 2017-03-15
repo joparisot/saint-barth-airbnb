@@ -27,6 +27,10 @@
   margin-bottom: 20px;
 }
 
+#padded {
+  padding: 0px;
+}
+
 .btn-medium {
   color: white;
   border: 1px solid white;
@@ -41,4 +45,17 @@
   color: $gold;
   border: 1px solid white;
   background-color: white;
+}
+
+.wrapper-gold {
+  background-color: #F4F2E9;
+}
+
+.title {
+  color: $gold;
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  font-family: 'Parisienne', cursive;
+  padding:50px;
 }
