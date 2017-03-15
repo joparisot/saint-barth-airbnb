@@ -14,9 +14,9 @@
   <div class="summary-container">
     <div id="summary">
         <h2>
-        <div id="user-image">
-          <img src="http://placehold.it/60x60" alt="">
-        </div>
+          <div id="user-image">
+            <img src="http://placehold.it/80x80" alt="">
+          </div>
         </h2>
         <div>
           <h2>
@@ -25,16 +25,29 @@
           <p>
             <%= @villa.address %>
           </p>
-        <div class="villa-icon-container">
-
+        <div class="villa-icon-container ">
+          <div class="villa-icon-card">
+            <%= image_tag "villa.svg", class: "villa-icon" %>
+            <%= @villa.category %> Villa
+          </div>
+          <div class="villa-icon-card">
+            <%= image_tag "guests.png", class: "villa-icon" %>
+            <%= @villa.number_of_guests %> Guests
+          </div>
+          <div class="villa-icon-card">
+            <%= image_tag "room.svg", class: "villa-icon" %>
+            <%= @villa.number_of_rooms %> Bedrooms
+          </div>
+          <div class="villa-icon-card">
             <%= image_tag "bed.svg", class: "villa-icon" %>
-            <%= image_tag "bed.svg", class: "villa-icon" %>
-            <%= image_tag "bed.svg", class: "villa-icon" %>
-            <%= image_tag "bed.svg", class: "villa-icon" %>
+            <%= @villa.number_of_beds %> Beds
+          </div>
         </div>
-      </div>
-      <div class="row">
 
+
+        <div class="row">
+
+        </div>
       </div>
     </div>
   </div>
