@@ -5,17 +5,21 @@
           <div class="profile">
             <div id ="profile-info">
               <h2> Profile Info </h2>
-              <img src="http://placehold.it/100x100" id = "profilep" >
+              <br>
+              <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/100x100" %>
+              <%= image_tag avatar_url, class: "avatar", id: "profilep" %>
               <p>
               <ul>
-                <li><strong>Name:</strong> <%= @user.first_name %> <%= @user.last_name %></li>
-                <li><strong>Email:</strong> <%= @user.email %></li>
+                <li><%= @user.first_name %> <%= @user.last_name %> </li>
+                <li><%= @user.email %></li>
+                <li> User since <%= @user.created_at.year %></li>
               </ul>
+               <%= link_to "Edit Info", user_path, method: :patch, class: "navbar-wagon-link" %>
               </p>
             </div>
-          <%= link_to "Edit Info", user_path, method: :patch, class: "navbar-wagon-link" %>
+
           </div>
-          <div class="text-center">
+          <div class="listings text-center">
             <h2> My Listings </h2>
               <% i=0 %>
               <% @villas.each do |villa| %>
