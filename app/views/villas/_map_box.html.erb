@@ -1,0 +1,28 @@
+<div class="infowindow">
+  <div class="card-wrapper">
+    <%= link_to villa_path(villa) do %>
+
+      <% if villa.photo? %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+           url('<%= cl_image_path villa.photo.path, crop: :fill %>')">
+          <div class="card-hover">check it out!</div>
+        </div>
+      <% else %>
+        <div class="card" style="background-image:
+         url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
+          <div class="card-hover">check it out!</div>
+        </div>
+      <% end %>
+
+
+      <div class="card-description">
+        <div class="villa-name"><%= villa.name %></div>
+        <div class="villa-location"><%= villa.address %></div>
+        <div class="villa-price"><%= villa.price.to_i %>€</div>
+      </div>
+
+    <% end %>
+  </div>
+
+
+</div>
