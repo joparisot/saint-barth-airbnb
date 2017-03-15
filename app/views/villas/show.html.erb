@@ -9,22 +9,22 @@
       <p>
         <%= @villa.price %> €
       </p>
+      </div>
     </div>
-  </div>
   <div class="summary-container">
     <div id="summary">
-        <h2>
-          <div id="user-image">
-            <img src="http://placehold.it/80x80" alt="">
-          </div>
-        </h2>
-        <div>
-          <h2>
-            <%= @villa.name %>
-          </h2>
-          <p>
-            <%= @villa.address %>
-          </p>
+      <h2>
+        <div id="user-image">
+          <img src="http://placehold.it/80x80" alt="">
+        </div>
+      </h2>
+    <div>
+      <h2>
+        <%= @villa.name %>
+      </h2>
+      <p>
+        <%= @villa.address %>
+      </p>
         <div class="villa-icon-container ">
           <div class="villa-icon-card">
             <%= image_tag "villa.svg", class: "villa-icon" %>
@@ -42,11 +42,6 @@
             <%= image_tag "bed.svg", class: "villa-icon" %>
             <%= @villa.number_of_beds %> Beds
           </div>
-        </div>
-
-
-        <div class="row">
-
         </div>
       </div>
     </div>
@@ -115,12 +110,12 @@
         </div>
       </div>
     </div>
-
-  <div class="row" id="show-back-link">
-  <%= link_to "Back", villas_path %>
-  </div>
-  <div class="btn btn-primary">
-    <%= link_to "Book", new_villa_booking_path(@villa) %>
-  </div>
+    <br>
+    <div>
+        <%= link_to "BOOK", new_villa_booking_path(@villa), class: "villa-btn-container" %>
+    </div>
+    <div class="btn btn-medium" id="show-back-link">
+      <%= link_to "Back", villas_path %>
+    </div>
 </div>
 
