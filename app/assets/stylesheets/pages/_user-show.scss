@@ -25,26 +25,25 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  padding-right: 50px;
+  align-items: center;
+  padding: 50px;
   & h2 {
   color: $gold;
+  font-family: $cursive;
   }
 }
 
 .listings {
   text-align: center;
-  width: 600px;
+  min-width: 600px;
 }
 
 .bookings {
   text-align: center;
 }
 
-.showcontainer .bottom-button {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+.bottom-button {
+  text-align: right !important;
 }
 
 .listings-card {
@@ -57,6 +56,7 @@
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   flex: 0 0 100px;
+  width: 100px
 }
 
 .listings-card-hover {
@@ -131,3 +131,41 @@
   position: relative;
   padding: 15px;
 }
+
+.status {
+  width: 30px;
+}
+
+.bookings-card-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.bookings-status-card {
+  display: flex;
+  align-items: right;
+  justify-content: center;
+  flex: 0 0 100px;
+}
+
+.booking-dates {
+  color: $gold;
+}
+
+.bookings {
+  color: $gold;
+  & h2 {
+  font-family: $cursive;
+  }
+}
+
+.host-bookings {
+  color: $gold;
+  & h2 {
+  font-family: $cursive;
+  }
+}
+
