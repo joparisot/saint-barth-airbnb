@@ -7,6 +7,13 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
+# geocoding
+gem "geocoder"
+gem "gmaps4rails"
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
 gem 'rails', '5.0.2'
 gem 'puma'
 gem 'pg'

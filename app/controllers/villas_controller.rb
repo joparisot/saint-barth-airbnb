@@ -3,6 +3,13 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 
 def index
   @villa = Villa.all
+  @villas = Villa.where.not(latitude: nil, longitude: nil)
+
+  @hash = Gmaps4rails.build_markers(@villas) do |villa, marker|
+        marker.lat villa.latitude
+        marker.lng villa.longitude
+        # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      end
 end
 
 def show

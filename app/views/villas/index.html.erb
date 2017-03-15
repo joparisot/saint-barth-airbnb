@@ -1,41 +1,75 @@
 <%= link_to "Add a villa", new_villa_path %>
 
-<% @villa.each do |villa| %>
+<div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-6">
-      <div class="card-wrapper">
-        <%= link_to villa_path(villa) do %>
+      <div class="row">
+        <div class="search-area">
+          <% @villa.each do |villa| %>
+            <div class="col-xs-12">
+              <div class="card-wrapper">
+                <%= link_to villa_path(villa) do %>
 
-          <% if villa.photo? %>
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-               url('<%= cl_image_path villa.photo.path, height: 300, width: 400, crop: :fill %>')">
-          <% else %>
-            <div class="card" style="background-image:
-             url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
+                  <% if villa.photo? %>
+                    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                       url('<%= cl_image_path villa.photo.path, height: 300, width: 400, crop: :fill %>')">
+                      <div class="card-hover">check it out!</div>
+                    </div>
+                  <% else %>
+                    <div class="card" style="background-image:
+                     url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
+                      <div class="card-hover">check it out!</div>
+                    </div>
+                  <% end %>         
+                  <div class="card-hover">
+                    <h2>check it out!</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat temporibus optio alias quia officiis eos perspiciatis cumque ducimus consequatur exercitationem. Quo velit esse laborum sint libero, voluptatibus sed necessitatibus dolor?</p>
+                  </div>
+                </div>
+
+                <div class="card-description">
+                  <div class="villa-name">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <%= villa.name %>
+                  </div>
+                  <div class="villa-location">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <%= villa.address %>
+                  </div>
+                  <div class="villa-price">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                    <%= villa.price.to_i %>€/night
+                  </div>
+                </div>
+
+                <% end %>
+              </div>
+            </div>
           <% end %>
-            <div class="card-hover">
-              <h2>check it out!</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat temporibus optio alias quia officiis eos perspiciatis cumque ducimus consequatur exercitationem. Quo velit esse laborum sint libero, voluptatibus sed necessitatibus dolor?</p>
-            </div>
-          </div>
-
-          <div class="card-description">
-            <div class="villa-name">
-              <i class="fa fa-home" aria-hidden="true"></i>
-              <%= villa.name %>
-            </div>
-            <div class="villa-location">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              <%= villa.address %>
-            </div>
-            <div class="villa-price">
-              <i class="fa fa-money" aria-hidden="true"></i>
-              <%= villa.price.to_i %>€/night
-            </div>
-          </div>
-
-        <% end %>
+        </div>
       </div>
     </div>
+    <div class="col-xs-12 col-md-6">
+      <div id="index-map" style="height: calc(100vh - 90px);"></div>
+    </div>
   </div>
+</div>
+
+
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'index-map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  </script>
 <% end %>
