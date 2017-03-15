@@ -56,13 +56,15 @@
       <div class="col-xs-12">
         <h2> My Bookings as a host </h2>
         <% i=0 %>
-        <% @bookings.each do |booking| %>
+        <% @bookings_as_a_host.each do |booking| %>
         <div>
           <% i+=1 %>
           <p>Booking <%=i %> <%= link_to Villa.find(booking.villa_id).name, villa_path(Villa.find(booking.villa_id)) %>
             Status <%= booking.status %>
             Start date <%= booking.start_date%>
             End date <%= booking.end_date%>
+            <%= link_to "Approve", approve_path(booking), method: :post, data: {confirm: "Are you sure you want to approve this booking?"} %>
+            <%= link_to "Reject", reject_path(booking), method: :post, data: {confirm: "Are you sure you want to reject this booking?"} %>
           </p>
         </div>
         <% end %>
