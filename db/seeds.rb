@@ -32,7 +32,7 @@ urls_walhahlla1 = [
 
 tiwa = Villa.new(name: "Tiwa",
                  price: "381",
-                 address: "Pointe Milou",
+                 address: "Hotel Christopher, Pointe Milou, Saint Barthelemy",
                  description: "Tiwa is a highly favored and private villa located on the hillside of Pointe Milou. It offers a simply stunning ocean view . Guests enjoy the spacious white villa with a pool, its complete privacy and the size of the estate.",
                  number_of_guests: 4,
                  number_of_rooms: 2,
@@ -44,7 +44,7 @@ tiwa.photo_url = 'https://a0.muscache.com/im/pictures/42612027/96c20997_original
 
 tiwa = Villa.new(name: "Walhalla",
                  price: "618",
-                 address: "Pointe Milou",
+                 address: "Aérodrome de St Jean, Saint Barthelemy",
                  description: "Walhalla is a highly favored and private villa located on the hillside of Pointe Milou. It offers a simply stunning ocean view from all the rooms. Guests enjoy the spacious white villa with a pool, its complete privacy and the size of the estate.",
                  number_of_guests: 8,
                  number_of_rooms: 4,

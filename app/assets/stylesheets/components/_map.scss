@@ -1,0 +1,13 @@
+#index-map {
+  height: calc(100vh -70px);
+  // position: fixed;
+  // width: 400px;
+  // right: 0;
+  // left: auto;
+  // bottom: 0;
+}
+
+.search-area {
+  height: calc(100vh - 90px);
+  overflow-y: scroll;
+}
