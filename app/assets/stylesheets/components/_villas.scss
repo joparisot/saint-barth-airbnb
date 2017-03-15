@@ -31,14 +31,20 @@
   border-bottom: 1px solid #DBDEDE;
 }
 
-#summary {
+#summary-container {
   margin-left: 200px;
   margin-right: 450px;
   padding-top: 20px;
   padding-bottom: 20px;
+  border-bottom: 1px solid #DBDEDE;
 }
 
-#summary .row {
+#user-image .img {
+  padding-left: -15px;
+  padding-right: -15px;
+}
+
+#summary h2 {
   margin-left: 0px;
   margin-right: 0px;
 }
@@ -47,6 +53,13 @@
   margin-left: 200px;
   margin-right: 450px;
   border-bottom: 1px solid #DBDEDE;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.villa-description-container {
+  display: flex;
+  justify-content: space-between;
   padding-top: 20px;
   padding-bottom: 20px;
 }

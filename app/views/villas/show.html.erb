@@ -12,29 +12,32 @@
     </div>
   </div>
   <div id="summary">
-    <div class="row">
-      <div>
+    <div id="user-image" class="row">
+      <div class="col-md-3 space-sm-4 space-sm-2" >
+        <img src="http://placehold.it/60x60" alt="">
+      </div>
+      <div class="col-md-9" data-reactid="9">
         <h2>
           <%= @villa.name %>
         </h2>
-      </div>
-      <div>
         <p>
           <%= @villa.address %>
         </p>
+      <div class="row villa-description-container">
+        <div class="villa-icon">
+          <%= image_tag "bed.svg" %>
+        </div>
+        <div class="villa-icon">
+          <%= image_tag "bed.svg" %>
+        </div>
+        <div class="villa-icon">
+          <%= image_tag "bed.svg" %>
+        </div>
+        <div class="villa-icon">
+          <%= image_tag "bed.svg" %>
+        </div>
       </div>
-<!--       <div class="villa-icon">
-        <%= image_tag "bed.svg" %>
       </div>
-      <div class="villa-icon">
-        <%= image_tag "bed.svg" %>
-      </div>
-      <div class="villa-icon">
-        <%= image_tag "bed.svg" %>
-      </div>
-      <div class="villa-icon">
-        <%= image_tag "bed.svg" %>
-      </div> -->
     </div>
     <div class="row">
 
@@ -87,7 +90,7 @@
   <%= link_to "Back", villas_path %>
   </div>
   <div class="btn btn-primary">
-    <% link_to "Book", new_villa_booking_path %>
+    <%= link_to "Book", new_villa_booking_path(@villa) %>
   </div>
 </div>
 
