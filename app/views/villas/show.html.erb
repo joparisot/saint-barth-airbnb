@@ -11,39 +11,33 @@
       </p>
     </div>
   </div>
-  <div id="summary">
-    <div id="user-image" class="row">
-      <div class="col-md-3 space-sm-4 space-sm-2" >
-        <img src="http://placehold.it/60x60" alt="">
-      </div>
-      <div class="col-md-9" data-reactid="9">
+  <div class="summary-container">
+    <div id="summary">
         <h2>
-          <%= @villa.name %>
+        <div id="user-image">
+          <img src="http://placehold.it/60x60" alt="">
+        </div>
         </h2>
-        <p>
-          <%= @villa.address %>
-        </p>
-      <div class="row villa-description-container">
-        <div class="villa-icon">
-          <%= image_tag "bed.svg" %>
-        </div>
-        <div class="villa-icon">
-          <%= image_tag "bed.svg" %>
-        </div>
-        <div class="villa-icon">
-          <%= image_tag "bed.svg" %>
-        </div>
-        <div class="villa-icon">
-          <%= image_tag "bed.svg" %>
-        </div>
-      </div>
-      </div>
-    </div>
-    <div class="row">
+        <div>
+          <h2>
+            <%= @villa.name %>
+          </h2>
+          <p>
+            <%= @villa.address %>
+          </p>
+        <div class="villa-icon-container">
 
+            <%= image_tag "bed.svg", class: "villa-icon" %>
+            <%= image_tag "bed.svg", class: "villa-icon" %>
+            <%= image_tag "bed.svg", class: "villa-icon" %>
+            <%= image_tag "bed.svg", class: "villa-icon" %>
+        </div>
+      </div>
+      <div class="row">
+
+      </div>
     </div>
   </div>
-
   <br><br><br>
     <div id="about-this-villa">
       <strong><p>About this villa</p></strong><br>
