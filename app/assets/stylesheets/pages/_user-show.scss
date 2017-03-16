@@ -47,7 +47,7 @@
 }
 
 .listings-card {
-  height: 100px;
+  height: 100%;
   crop: fill;
   object-fit: cover;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
@@ -164,6 +164,7 @@
 
 .host-bookings {
   color: $gold;
+  min-height: 300px;
   & h2 {
   font-family: $cursive;
   }
@@ -189,10 +190,10 @@
   width: 100px;
   height: 100px;
 }
-.user-card{
+.villa-card{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex: 0 0 120px;
 }
 
@@ -224,9 +225,6 @@
   flex: 1;
 }
 
-.request_notif {
-  margin-top: 50px;
-}
 
 .margini {
   margin: 20px;

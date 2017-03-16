@@ -22,7 +22,7 @@
 /* Navbar logo */
 .navbar-wagon-brand img {
   width: 50px;
-  color: $gold;
+  fill: $gold;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -133,5 +133,10 @@
 }
 
 .navbar-pages-home {
-  background-color: rgba(255,255,255,0.5) !important;
+  background-color: black !important;
+  color: white !important;
+  border-style: solid !important;
+  & svg {
+    fill: white;
+  }
 }
