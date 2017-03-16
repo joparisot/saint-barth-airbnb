@@ -34,7 +34,7 @@ def index
     # Need to handle case where no villa is available at the dates
   end
 end
-    
+
 
 def show
   @villa = Villa.find(params[:id])
@@ -52,10 +52,14 @@ def new
 end
 
 def create
+  # need to put an if if all the validations don't go through
   @villa = Villa.new(villa_params)
   @villa.user = current_user
-  @villa.save
-  redirect_to villa_path(@villa)
+  if @villa.save
+    redirect_to villa_path(@villa)
+  else
+    render 'new'
+  end
 end
 
 def edit
