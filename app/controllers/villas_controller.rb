@@ -14,6 +14,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 
   def show
     @villa = Villa.find(params[:id])
+    @booking = Booking.new
     @hash = Gmaps4rails.build_markers([@villa]) do |villa, marker|
       marker.lat villa.latitude
       marker.lng villa.longitude
