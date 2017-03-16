@@ -34,9 +34,11 @@ def index
     # Need to handle case where no villa is available at the dates
   end
 end
+    
 
 def show
   @villa = Villa.find(params[:id])
+  @booking = Booking.new
   @reviews = @villa.reviews
   @hash = Gmaps4rails.build_markers([@villa]) do |villa, marker|
     marker.lat villa.latitude
