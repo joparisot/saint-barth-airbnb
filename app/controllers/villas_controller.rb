@@ -37,6 +37,7 @@ end
 
 def show
   @villa = Villa.find(params[:id])
+  @reviews = @villa.reviews
   @hash = Gmaps4rails.build_markers([@villa]) do |villa, marker|
     marker.lat villa.latitude
     marker.lng villa.longitude
