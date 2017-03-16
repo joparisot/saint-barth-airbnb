@@ -38,6 +38,10 @@ end
 
 def show
   @villa = Villa.find(params[:id])
+  @hash = Gmaps4rails.build_markers([@villa]) do |villa, marker|
+    marker.lat villa.latitude
+    marker.lng villa.longitude
+    marker.infowindow render_to_string(partial: "/villas/map_box", locals: { villa: villa })
 end
 
 def new
