@@ -2,7 +2,7 @@
   <%= f.error_notification %>
   <%= f.input :start_date, as: :string, input_html:{class: "datepicker"} %>
   <%= f.input :end_date, as: :string, input_html:{class: "datepicker"} %>
-  <%= f.input :number_of_guests%>
+  <%= f.input :number_of_guests, input_html: { min: 0, step: "1", :value => "2" } %>
 
-  <%= f.submit "Confirm booking", class: "btn btn-primary" %>
+  <%= f.submit "Confirm booking", class: "form-btn btn btn-primary" %>
 <% end %>
