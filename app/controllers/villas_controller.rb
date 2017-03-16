@@ -68,7 +68,7 @@ end
 private
 
 def villa_params
-  params.require(:villa).permit(:name, :address, :price, :photo)
+  params.require(:villa).permit(:name, :address, :price, :photo, images: [])
 end
 
 
