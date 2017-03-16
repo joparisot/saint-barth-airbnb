@@ -3,7 +3,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 
 def index
   # Need to handle the case where only one of the two inputs is filled
-  if params[:villa][:start_date] == ""
+  if params[:villa][:start_date] == "" || params[:villa][:end_date] == ""
     @villa = Villa.all
     @villas = Villa.where.not(latitude: nil, longitude: nil)
 
@@ -16,11 +16,11 @@ def index
     @start_date_search = Date.parse(params[:villa][:start_date])
     @end_date_search = Date.parse(params[:villa][:end_date])
     # Loop through all villas
-    @villa = [] #array that will take all the filtered out villas
+    @villa = []
     @allvillas = Villa.all
     @allvillas.each do |villa|
       @counter = 0
-      @villabookings = villa.bookings
+      @villabookings = villa.bookings.where(status: ["Approved", "Pending", "pending"])
       @villabookings.each do |booking|
         if (booking.end_date < @start_date_search && booking.end_date < @end_date_search\
         && booking.start_date < @start_date_search && booking.start_date < @end_date_search )\
@@ -29,10 +29,9 @@ def index
           @counter += 1
         end
       end
-      @villa << villa if (@counter == villa.bookings.length || villa.bookings.nil?)
+      @villa << villa if (@counter == @villabookings.length || @villabookings.nil?)
     end
-    # need to handle question of status (if booking exist but rejected or cancelled, then to be ignored)
-    # et le cas ou aucune dispo
+    # Need to handle case where no villa is available at the dates
   end
 end
 
