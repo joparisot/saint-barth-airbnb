@@ -1,4 +1,10 @@
-<div class="container">
-  <h2>Edit my villa</h2>
-  <%= render 'form' %>
+<div class="bg-light-background padded form-wrapper">
+  <div class="col-xs-6 col-xs-offset-3">
+    <div class="form-container">
+      <h2>Edit my villa</h2>
+      <%= render 'form' %>
+      <br>
+       <%= link_to "Back", user_path(@user)%>
+    </div>
+  </div>
 </div>
