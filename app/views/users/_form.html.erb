@@ -2,6 +2,7 @@
   <%= f.error_notification %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
+  <%= f.input :date_of_birth, as: :string, input_html: {type: :date}%>
   <%= f.input :photo, as: :attachinary %>
 
   <%= f.submit "Submit", class: "form-btn btn btn-primary" %>
