@@ -15,7 +15,7 @@
     <div id="summary">
       <h2>
         <div id="user-image">
-          <img src="http://placehold.it/80x80" alt="">
+          <img src="<% @villa.user.facebook_picture_url %>" alt="">
         </div>
       </h2>
     <div>
@@ -47,75 +47,74 @@
     </div>
   </div>
   <br><br><br>
-    <div id="about-this-villa">
-      <strong><p>About this villa</p></strong><br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda necessitatibus, nemo asperiores non quibusdam laudantium accusantium iure cum consectetur nobis a et mollitia accusamus rerum, eius minima quaerat praesentium quia.</p>
-    </div>
+  <div id="about-this-villa">
+    <strong><p>About this villa</p></strong><br>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda necessitatibus, nemo asperiores non quibusdam laudantium accusantium iure cum consectetur nobis a et mollitia accusamus rerum, eius minima quaerat praesentium quia.</p>
+  </div>
 
-    <div class="villa-features-container">
-      <div class="villa-card">
-        <div>
-          The space
-        </div>
-      </div>
-      <div class="villa-card">
-        <div>
-          Accomodates: <strong><%= @villa.number_of_guests %></strong>
-        </div>
-        <div>
-          Bathrooms: <strong><%= @villa.number_of_bathrooms %></strong>
-        </div>
-        <div>
-          Bedrooms: <strong><%= @villa.number_of_rooms %></strong>
-        </div>
-        <div>
-          Beds: <strong><%= @villa.number_of_beds %></strong>
-        </div>
-      </div>
-      <div class="villa-card">
-        <div>
-          Check-in: <strong><%= @villa.arrival_time %></strong>
-        </div>
-        <div>
-          Property type: <strong><%= @villa.category %></strong>
-        </div>
+  <div class="villa-features-container">
+    <div class="villa-card">
+      <div>
+        The space
       </div>
     </div>
-    <div class="villa-features-container">
-      <div class="villa-card">
-        <div>
-          Amenities
-        </div>
+    <div class="villa-card">
+      <div>
+        Accomodates: <strong><%= @villa.number_of_guests %></strong>
       </div>
-      <div class="villa-card">
-        <div>
-          Pool: <strong><%= @villa.pool %></strong>
-        </div>
-        <div>
-          Heated pool: <strong><%= @villa.heated_pool %></strong>
-        </div>
-        <div>
-          Bedrooms: <strong><%= @villa.jacuzzi %></strong>
-        </div>
-        <div>
-          Beds: <strong><%= @villa.parking %></strong>
-        </div>
+      <div>
+        Bathrooms: <strong><%= @villa.number_of_bathrooms %></strong>
       </div>
-      <div class="villa-card">
-        <div>
-          Check-in: <strong><%= @villa.wifi %></strong>
-        </div>
-        <div>
-          Smoking allowed: <strong><%= @villa.smoking_allowed %></strong>
-        </div>
+      <div>
+        Bedrooms: <strong><%= @villa.number_of_rooms %></strong>
+      </div>
+      <div>
+        Beds: <strong><%= @villa.number_of_beds %></strong>
       </div>
     </div>
-    <br>
-    <div>
-        <%= link_to "BOOK", new_villa_booking_path(@villa), class: "villa-btn-container" %>
+    <div class="villa-card">
+      <div>
+        Check-in: <strong><%= @villa.arrival_time %></strong>
+      </div>
+      <div>
+        Property type: <strong><%= @villa.category %></strong>
+      </div>
     </div>
-    <div class="btn btn-medium" id="show-back-link">
-      <%= link_to "Back", villas_path %>
+  </div>
+  <div class="villa-features-container">
+    <div class="villa-card">
+      <div>
+        Amenities
+      </div>
     </div>
+    <div class="villa-card">
+      <div>
+        Pool: <strong><%= @villa.pool %></strong>
+      </div>
+      <div>
+        Heated pool: <strong><%= @villa.heated_pool %></strong>
+      </div>
+      <div>
+        Bedrooms: <strong><%= @villa.jacuzzi %></strong>
+      </div>
+      <div>
+        Beds: <strong><%= @villa.parking %></strong>
+      </div>
+    </div>
+    <div class="villa-card">
+      <div>
+        Check-in: <strong><%= @villa.wifi %></strong>
+      </div>
+      <div>
+        Smoking allowed: <strong><%= @villa.smoking_allowed %></strong>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div>
+      <%= link_to "BOOK", new_villa_booking_path(@villa), class: "villa-btn-container" %>
+  </div>
+  <div id="show-back-link">
+    <%= link_to "Back", villas_path %>
+  </div>
 </div>
-
