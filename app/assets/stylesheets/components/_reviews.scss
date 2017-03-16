@@ -1,0 +1,38 @@
+.review-card {
+  padding-left: 0px;
+  border-color: #A38F65;
+  border-left-color: white;
+  border-right-color: white;
+  border-radius: 20px;
+  text-align: center;
+  border-style: solid;
+  padding: 20px;
+  border-width: 0.5px;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.content {
+  text-align: left;
+  max-width: 300px;
+  flex: 1 0 auto;
+}
+
+.review-name {
+  color:#A38F65;
+  font-style: italic;
+  font-size: 16px;
+}
+
+.review-content {
+  color:#A38F65;
+  font-style: italic;
+}
+
+.review-stars i {
+  color:#A38F65;
+}
+

@@ -14,6 +14,7 @@ end
 
 def show
   @villa = Villa.find(params[:id])
+  @reviews = @villa.reviews
 end
 
 def new
