@@ -1,0 +1,8 @@
+<%= simple_form_for [@user] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :photo, as: :attachinary %>
+
+  <%= f.submit "Submit", class: "form-btn btn btn-primary" %>
+<% end %>
