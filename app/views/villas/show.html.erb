@@ -115,6 +115,14 @@
       <%= link_to "BOOK", new_villa_booking_path(@villa), class: "villa-btn-container" %>
   </div>
   <br>
+
+  <div class="all-pictures" style="height: 300px;">
+    <% @villa.images.each do |image| %>
+      <%= cl_image_tag image.path, width: 30, height: 20, crop: :fill %>
+    <% end %>
+  </div>
+
+
   <div class="villa-content-disposition" id="map" style="height: 600px;">
 
     <% content_for(:after_js) do %>
