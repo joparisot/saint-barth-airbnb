@@ -6,19 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-if !Villa.find_by(name:"Tiwa").nil?
-  Villa.find_by(name:"Tiwa").destroy
-end
+Booking.destroy_all
+Villa.destroy_all
 
-if !Villa.find_by(name:"Walhalla").nil?
-  Villa.find_by(name:"Walhalla").destroy
-end
+# if !Villa.find_by(name:"Tiwa").nil?
+#   Villa.find_by(name:"Tiwa").destroy
+# end
 
-Booking.where(villa_id: nil).destroy_all
+# if !Villa.find_by(name:"Walhalla").nil?
+#   Villa.find_by(name:"Walhalla").destroy
+# end
+
+# Booking.where(villa_id: nil).destroy_all
+
+# Seeding User. Can i do that?
 
 
+# Seeding villas
 urls_walhahlla1 = [
-  'https://drive.google.com/open?id=0B4yc0IuB7OxDaXExZEY5RDFtVFU',
+  # 'https://drive.google.com/open?id=0B4yc0IuB7OxDaXExZEY5RDFtVFU',
   # 'https://drive.google.com/open?id=0B4yc0IuB7OxDbUJaZ0FnS1JqR1E',
   # 'https://drive.google.com/open?id=0B4yc0IuB7OxDNU5rVHowbElWSDA',
   # 'https://drive.google.com/open?id=0B4yc0IuB7OxDczlXaEVTa0l6SE0'
@@ -30,6 +36,8 @@ urls_walhahlla1 = [
 #   'https://drive.google.com/open?id=0B4yc0IuB7OxDeFU5LWlwWU1kcEU'
 # ]
 
+
+
 tiwa = Villa.new(name: "Tiwa",
                  price: "381",
                  address: "Hotel Christopher, Pointe Milou, Saint Barthelemy",
@@ -38,6 +46,7 @@ tiwa = Villa.new(name: "Tiwa",
                  number_of_rooms: 2,
                  number_of_beds: 2,
                  pool: true,
+                 user_id: 1,
 )
 tiwa.save!
 tiwa.photo_url = 'https://a0.muscache.com/im/pictures/42612027/96c20997_original.jpg?aki_policy=xx_large'
@@ -50,10 +59,9 @@ tiwa = Villa.new(name: "Walhalla",
                  number_of_rooms: 4,
                  number_of_beds: 4,
                  pool: true,
+                 user_id: 1,
 )
 tiwa.save!
 tiwa.photo_url = 'https://a0.muscache.com/im/pictures/96698740/65497b9a_original.jpg?aki_policy=xx_large'
 
-# tiwa = Villa.new(name: "tiwa", price: "#", address: "test address")
-# tiwa.save!
-# tiwa.photo_urls = urls_tiwa
+# Seeding bookings

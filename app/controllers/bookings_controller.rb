@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.villa_id = params[:villa_id]
-    @booking.status = "pending"
+    @booking.status = "Pending"
     @booking.save
     redirect_to user_path(current_user)
   end

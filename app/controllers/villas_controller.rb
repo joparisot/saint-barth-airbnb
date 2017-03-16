@@ -2,19 +2,47 @@ class VillasController < ApplicationController
 skip_before_action :authenticate_user!, only: [:index, :show]
 
 def index
-  @villa = Villa.all
-  @villas = Villa.where.not(latitude: nil, longitude: nil)
+  # Need to handle the case where only one of the two inputs is filled
+  if params[:villa][:start_date] == "" || params[:villa][:end_date] == ""
+    @villa = Villa.all
+    @villas = Villa.where.not(latitude: nil, longitude: nil)
 
-  @hash = Gmaps4rails.build_markers(@villas) do |villa, marker|
-        marker.lat villa.latitude
-        marker.lng villa.longitude
-        marker.infowindow render_to_string(partial: "/villas/map_box", locals: { villa: villa })
+    @hash = Gmaps4rails.build_markers(@villas) do |villa, marker|
+      marker.lat villa.latitude
+      marker.lng villa.longitude
+      marker.infowindow render_to_string(partial: "/villas/map_box", locals: { villa: villa })
+    end
+  else
+    @start_date_search = Date.parse(params[:villa][:start_date])
+    @end_date_search = Date.parse(params[:villa][:end_date])
+    # Loop through all villas
+    @villa = []
+    @allvillas = Villa.all
+    @allvillas.each do |villa|
+      @counter = 0
+      @villabookings = villa.bookings.where(status: ["Approved", "Pending", "pending"])
+      @villabookings.each do |booking|
+        if (booking.end_date < @start_date_search && booking.end_date < @end_date_search\
+        && booking.start_date < @start_date_search && booking.start_date < @end_date_search )\
+        || (booking.end_date > @start_date_search && booking.end_date > @end_date_search\
+        && booking.start_date > @start_date_search && booking.start_date > @end_date_search )
+          @counter += 1
+        end
       end
+      @villa << villa if (@counter == @villabookings.length || @villabookings.nil?)
+    end
+    # Need to handle case where no villa is available at the dates
+  end
 end
 
 def show
   @villa = Villa.find(params[:id])
   @reviews = @villa.reviews
+  @hash = Gmaps4rails.build_markers([@villa]) do |villa, marker|
+    marker.lat villa.latitude
+    marker.lng villa.longitude
+    marker.infowindow render_to_string(partial: "/villas/map_box", locals: { villa: villa })
+  end
 end
 
 def new
@@ -41,7 +69,7 @@ end
 private
 
 def villa_params
-  params.require(:villa).permit(:name, :address, :price, :photo)
+  params.require(:villa).permit(:name, :address, :price, :photo, images: [])
 end
 
 

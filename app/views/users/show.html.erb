@@ -1,130 +1,184 @@
 <div class="wrapper bg-light-background padded" id="user-show">
-    <div class="row">
-      <div class="container bg-white">
-        <div class="showcontainer">
-          <div class="profile">
-            <%= link_to edit_user_path(current_user) do %>
-            <div id ="profile-info">
-              <h2> Profile Info </h2>
-              <br>
-              <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/100x100" %>
-              <%= image_tag avatar_url, class: "avatar", id: "profilep" %>
-              <p>
-              <ul>
-                <li><%= @user.first_name %> <%= @user.last_name %> </li>
-                <li><%= @user.email %></li>
-                <li> User since <%= @user.created_at.year %></li>
-              </ul>
-               <%= link_to "Edit Info", user_path, method: :patch, class: "navbar-wagon-link" %>
-              </p>
-            </div>
-            <% end %>
-          </div>
-
-          <div class="listings">
-            <h2> My Listings </h2>
-            <% @villas.each do |villa| %>
-              <div class="row">
-                <div class="col-xs-12 padded">
-                  <%= link_to villa_path(villa) do %>
-                  <div class="listings-card-wrapper">
-                      <% if villa.photo? %>
-                        <div class="listings-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                           url('<%= cl_image_path villa.photo.path, height: 100, width: 200, crop: :fill %>')">
-                        </div>
-                      <% else %>
-                        <div class="listings-card" style="background-image:
-                         url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
-                        </div>
-                      <% end %>
-                      <div class="listings-card-description">
-                        <div class="villa-name"><strong><%= villa.name %></strong></div>
-                        <div class="villa-location"><%= villa.address %></div>
-                        <div class="villa-price"><%= villa.price.to_i %>€</div>
-                      </div>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-            <div class="bottom-button">
-              <%= link_to "Add Listing", new_villa_path, class: "navbar-wagon-button btn"%>
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-    <div class="container bg-white text-center">
-      <div class="col-xs-12">
-        <div class="bookings">
-          <h2> My Bookings </h2>
-          <% @bookings.each do |booking| %>
-            <div class="row">
-              <div class="col-xs-12 padded">
-                <% @villa = Villa.find(booking.villa_id) %>
-                <%= link_to villa_path(@villa) do %>
-                <div class="listings-card-wrapper">
-                    <% if @villa.photo? %>
-                      <div class="listings-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                         url('<%= cl_image_path @villa.photo.path, height: 100, width: 200, crop: :fill %>')">
-                      </div>
-                    <% else %>
-                      <div class="listings-card" style="background-image:
-                       url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
-                      </div>
-                    <% end %>
-                    <div class="bookings-card-description">
-                      <div class="villa-name"><strong><%= link_to @villa.name, villa_path(@villa) %></strong></div>
-                      <div class="villa-location"><%= link_to @villa.address, villa_path(@villa) %></div>
-                      <div class="booking-dates">[<%= booking.start_date%> - <%= booking.end_date%>]</div>
-                    </div>
-                    <div class="bookings-status-card">
-                        <% if booking.status == "pending" %>
-                          <%= image_tag "pending.svg", class: "status"%>
-                        <% elsif booking.status == "Rejected" %>
-                          <%= image_tag "rejected.svg", class: "status"%>
-                        <% else %>
-                          <%= image_tag "approved.svg", class: "status" %>
-                        <% end %>
-                    </div>
-                  </div>
-                  <% end %>
-              </div>
-            </div>
-          <% end %>
-          <div  class ="bottom-button">
-          <%= link_to "Book Another", villas_path, class: "navbar-wagon-button btn"%>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container bg-white text-center">
-      <div class="col-xs-12">
-          <div class="host-bookings">
-        <h2> My Bookings as a host </h2>
-        <% i=0 %>
-        <% @bookings_as_a_host.each do |booking| %>
-        <div>
-          <% i+=1 %>
-          <p>Booking <%=i %> <%= link_to Villa.find(booking.villa_id).name, villa_path(Villa.find(booking.villa_id)) %>
-            Status <%= booking.status %>
-            Start date <%= booking.start_date%>
-            End date <%= booking.end_date%>
-            <%= link_to "Approve", approve_path(booking), method: :post, data: {confirm: "Are you sure you want to approve this booking?"} %>
-            <%= link_to "Reject", reject_path(booking), method: :post, data: {confirm: "Are you sure you want to reject this booking?"} %>
+  <div class="container bg-white">
+    <div class="showcontainer">
+      <div class="profile">
+        <%= link_to edit_user_path(current_user) do %>
+        <div id ="profile-info">
+          <h2> Profile Info </h2>
+          <br>
+          <% if @user.photo? %>
+            <%= cl_image_tag(@user.photo.path, { class: "avatar", id: "profilep" }) %>
+          <% else %>
+            <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/100x100" %>
+            <%= image_tag avatar_url, class: "avatar", id: "profilep" %>
+           <% end %>
+          <p>
+          <ul>
+            <li><%= @user.first_name %> <%= @user.last_name %> </li>
+            <li><%= @user.email %></li>
+            <li> User since <%= @user.created_at.year %></li>
+          </ul>
+           <%= link_to "Edit Info", edit_user_path(current_user), class: "navbar-wagon-link" %>
           </p>
         </div>
         <% end %>
+      </div>
+      <div class="listings">
+        <h2> My Listings </h2>
+        <% @villas.each do |villa| %>
+        <div class="row">
+          <div class="col-xs-12 padded">
+            <%= link_to villa_path(villa) do %>
+            <div class="listings-card-wrapper">
+                <% if villa.photo? %>
+                  <div class="listings-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                     url('<%= cl_image_path villa.photo.path, height: 100, width: 200, crop: :fill %>')">
+                  </div>
+                <% else %>
+                  <div class="listings-card" style="background-image:
+                   url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
+                  </div>
+                <% end %>
+                <div class="listings-card-description">
+                  <div class="villa-name"><strong><%= villa.name %></strong></div>
+                  <div class="villa-location"><%= villa.address %></div>
+                  <div class="villa-price"><%= villa.price.to_i %>€</div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+        <div class="bottom-button">
+          <%= link_to "Add Listing", new_villa_path, class: "navbar-wagon-button btn"%>
         </div>
       </div>
     </div>
+  </div>
+  <div class="container bg-white text-center">
+    <div class="col-xs-12">
+      <div class="bookings">
+        <h2> My Bookings </h2>
+        <div class="row">
+          <div class="col-xs-12 padded">
+            <% @bookings.each do |booking| %>
+              <% @villa = Villa.find(booking.villa_id) %>
+              <%= link_to villa_path(@villa) do %>
+                <div class="listings-card-wrapper margini">
+                  <% if @villa.photo? %>
+                  <div class="listings-card"><%= cl_image_path @villa.photo.path, height: 100, width: 200, crop: :fill %></div>
+                  <% else %>
+                    <div class="listings-card" style="background-image:
+                     url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
+                    </div>
+                  <% end %>
+                  <div class="bookings-card-description">
+                    <div class="villa-name"><strong><%= link_to @villa.name, villa_path(@villa) %></strong></div>
+                    <div class="villa-location"><%= link_to @villa.address, villa_path(@villa) %></div>
+                    <div class="booking-dates">[<%= booking.start_date%> - <%= booking.end_date%>]</div>
+                  </div>
+                  <div class="bookings-status-card">
+                    <% if booking.status == "pending" %>
+                      <%= image_tag "pending.svg", class: "status"%>
+                    <% elsif booking.status == "Rejected" %>
+                      <%= image_tag "rejected.svg", class: "status"%>
+                    <% else %>
+                      <%= image_tag "approved.svg", class: "status" %>
+                    <% end %>
+                  </div>
+                </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div  class ="bottom-button">
+      <%= link_to "Book Another", villas_path, class: "navbar-wagon-button btn"%>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="container bg-white text-center">
+    <div class="host-bookings">
+      <h2> My Bookings as a host </h2>
+      <div class="row">
+        <div class="col-xs-6">
+        <% if @notifs == 0 %>
+          <div class="request_notif"><%= "0 pending requests at the moment" %></div>
+        <% else %>
+          <% @bookings_as_a_host.each do |booking| %>
+            <div class="col-xs-12">
+              <div class="host-pending-wrapper">
+                <% @villa = Villa.find(booking.villa_id) %>
+                <% @user = User.find(booking.user_id) %>
+              <div class="user-card">
+                <% if @user.photo? %>
+                  <%= cl_image_tag(@user.photo.path, { class: "user-avatar"}) %>
+                <% else %>
+                  <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/100x100" %>
+                  <%= image_tag avatar_url, class: "user-avatar" %>
+                <% end %>
+              </div>
+              <div class="pending-card-description">
+                <div class="user-name"><%= @user.first_name + @user.last_name %></div>
+                <div class="user-dob"> Born <%= @user.date_of_birth.to_date %></div>
+                <div class="villa-name"><strong><%= link_to @villa.name, villa_path(@villa) %></strong></div>
+                <div class="booking-guests">Guests: <%= booking.number_of_guests%></div>
+                <div class="booking-dates">[<%= booking.start_date%> - <%= booking.end_date%>]</div>
+              </div>
+              <div class="host-actions">
+                <%= link_to "Approve", approve_path(booking), class: "btn btn-success btn-action", method: :post, data: {confirm: "Are you sure you want to approve this booking?"} %>
+                <%= link_to "Reject", reject_path(booking), class: "btn btn-danger btn-action", method: :post, data: {confirm: "Are you sure you want to reject this booking?"} %>
+              </div>
+            </div>
+          <% end %>
+          </div>
+        <% end %>
+      </div>
 
+      <div class="col-xs-6">
+        <div class="host-card">
+        <% @bookings_as_a_host.each do |booking| %>
+          <div class="col-xs-12">
+            <div class="host-pending-wrapper">
+              <% @villa = Villa.find(booking.villa_id) %>
+              <% @user = User.find(booking.user_id) %>
+              <div class="user-card">
+                <% if @user.photo? %>
+                  <%= cl_image_tag(@user.photo.path, { class: "user-avatar"}) %>
+                <% else %>
+                  <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/100x100" %>
+                  <%= image_tag avatar_url, class: "user-avatar" %>
+                <% end %>
+              </div>
+              <div class="pending-card-description">
+                <div class="user-name"><%= @user.first_name + @user.last_name %></div>
+                <div class="user-dob"> Born <%= @user.date_of_birth.to_date %></div>
+                <div class="villa-name"><strong><%= link_to @villa.name, villa_path(@villa) %></strong></div>
+                <div class="booking-guests">Guests: <%= booking.number_of_guests%></div>
+                <div class="booking-dates">[<%= booking.start_date%> - <%= booking.end_date%>]</div>
+              </div>
+              <div class="bookings-status-card">
+                <% if booking.status == "pending" %>
+                  <%= image_tag "pending.svg", class: "status"%>
+                <% elsif booking.status == "Rejected" %>
+                  <%= image_tag "rejected.svg", class: "status"%>
+                <% else %>
+                  <%= image_tag "approved.svg", class: "status" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <div class="container">
-    <div class="row" id="show-back-link">
+    <div class="row" >
       <%= link_to "Back", villas_path %>
     </div>
   </div>
 </div>
+
 
 
