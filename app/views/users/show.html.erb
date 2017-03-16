@@ -15,7 +15,7 @@
                 <li><%= @user.email %></li>
                 <li> User since <%= @user.created_at.year %></li>
               </ul>
-               <%= link_to "Edit Info", user_path, method: :patch, class: "navbar-wagon-link" %>
+               <%= link_to "Edit Info", edit_user_path(current_user), class: "navbar-wagon-link" %>
               </p>
             </div>
             <% end %>

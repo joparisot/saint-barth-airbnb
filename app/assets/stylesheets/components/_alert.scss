@@ -9,6 +9,8 @@
 }
 .alert-info {
   background: $gold;
+  border-color: $gold;
+  border-radius: 0;
 }
 .alert-warning {
   background: $red;
