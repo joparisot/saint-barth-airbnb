@@ -42,6 +42,7 @@ def show
     marker.lat villa.latitude
     marker.lng villa.longitude
     marker.infowindow render_to_string(partial: "/villas/map_box", locals: { villa: villa })
+  end
 end
 
 def new
