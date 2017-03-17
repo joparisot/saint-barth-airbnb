@@ -133,9 +133,8 @@
 }
 
 .navbar-pages-home {
-  background-color: transparent !important;
+  background-color: rgba(255,255,255,0.5) !important;
   color: white !important;
-  border-style: solid !important;
   & svg {
     fill: white;
   }
