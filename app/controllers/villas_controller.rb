@@ -89,7 +89,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   def destroy
     @villa = Villa.find(params[:id])
     @villa.destroy
-    redirect_to villas_path
+    redirect_to user_path(current_user)
   end
 
   private
