@@ -34,11 +34,21 @@
                  url('<%= cl_image_path villa.images.first.path, height: 100, width: 200, crop: :fill %>')">
               </div>
               <div class="listings-card-description">
-                <div class="villa-name"><strong><%= villa.name %></strong></div>
-                <div class="villa-location"><%= villa.address %></div>
-                <div class="villa-price"><%= villa.price.to_i %>€</div>
+                <div class="listing-summary">
+                  <div class="villa-name"><strong><%= villa.name %></strong></div>
+                  <div class="villa-location"><%= villa.address %></div>
+                  <div class="villa-price"><%= villa.price.to_i %>€</div>
+                </div>
+                <div class="listing-user-actions">
+                  <div class="villa-edit"><%= link_to "Edit", edit_villa_path(villa) %></div>
+                  <div class="villa-destroy">
+                    <%= link_to "Destroy", villa_path(villa),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" } %>
+                  </div>
+                </div>
               </div>
-              </div>
+            </div>
             <% end %>
           </div>
         </div>
