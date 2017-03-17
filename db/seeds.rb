@@ -49,7 +49,7 @@ tiwa = Villa.new(name: "Tiwa",
                  user_id: 1,
 )
 tiwa.image_urls = urls_tiwa
-tiwa.save!
+tiwa.save
 
 walhalla = Villa.new(name: "Walhalla",
                  price: "618",
@@ -62,6 +62,6 @@ walhalla = Villa.new(name: "Walhalla",
                  user_id: 1,
 )
 walhalla.image_urls = urls_walhahlla
-walhalla.save!
+walhalla.save
 
 # Seeding bookings
