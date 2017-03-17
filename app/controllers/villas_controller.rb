@@ -33,6 +33,19 @@ skip_before_action :authenticate_user!, only: [:index, :show]
       end
       # Need to handle case where no villa is available at the dates
     end
+
+    @villas_to_display_on_map_not_filtered = Villa.where.not(latitude: nil, longitude: nil)
+    @villas_to_display_on_map_filtered = []
+    @villas_to_display_on_map_not_filtered.each do |villa|
+      @villas_to_display_on_map_filtered << villa if @villa.include?(villa)
+    end
+    @hash = Gmaps4rails.build_markers(@villas_to_display_on_map_filtered) do |villa, marker|
+      marker.lat villa.latitude
+      marker.lng villa.longitude
+      marker.infowindow render_to_string(partial: "/villas/map_box", locals: { villa: villa })
+    end
+    # Need to handle case where no villa is available at the dates
+
   end
 
 

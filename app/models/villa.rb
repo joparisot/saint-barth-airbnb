@@ -7,7 +7,7 @@ class Villa < ApplicationRecord
 
   # has_attachment :photo
   has_attachments :images, maximum: 30
-  validates :images, presence: true
+  # validates :images, presence: true
   validates :name, presence: true
   validates :address, presence: true
   validates :price, presence: true

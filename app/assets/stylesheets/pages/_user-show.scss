@@ -1,8 +1,9 @@
-#profilep {
+.profilep {
   border-radius: 50%;
   object-fit: cover;
   width: 200px;
   height: 200px;
+  border: $gold 1px solid;
 }
 
 #profile-info {
@@ -36,6 +37,9 @@
 .listings {
   text-align: center;
   min-width: 600px;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
 }
 
 .bookings {
@@ -43,7 +47,7 @@
 }
 
 .bottom-button {
-  text-align: right !important;
+  align-self: flex-end;
 }
 
 .listings-card {
@@ -228,4 +232,8 @@
 
 .margini {
   margin: 20px;
+}
+
+.request_notif{
+  margin-top: 100px;
 }

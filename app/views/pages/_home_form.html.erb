@@ -2,7 +2,7 @@
   <div class="form-inline text-center padded">
   <%= simple_form_for :villa, :url => url_for(:action => 'index', :controller => 'villas'), :method => 'get' do |f| %>
     <%= f.input :start_date, as: :string, input_html:{class: "datepicker bg-transparent"}, placeholder: "start date", label: false %>
-    <%= f.input :end_date, as: :string, input_html:{class: "datepicker bg-transparent"},  placeholder: "start date", label: false %>
+    <%= f.input :end_date, as: :string, input_html:{class: "datepicker bg-transparent"},  placeholder: "end date", label: false %>
   </div>
     <%= f.submit 'EXPLORE', class: "btn btn-medium padded" %>
   <% end %>
