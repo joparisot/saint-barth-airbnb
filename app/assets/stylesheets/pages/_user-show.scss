@@ -86,18 +86,24 @@
 
 .listings-card-description {
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   flex: 1;
-  & .listing-user-actions {
-    display: flex;
-    text-align: right !important;
-    padding-right: 10px;
-  }
-  & .listing-summary {
-    display: flex;
-    justify-content: space-around;
-  }
+}
+
+.listings-villa-name {
+  display: flex;
+  align-items: center;
+}
+
+.listings-villa-price {
+  display: flex;
+  align-items: center;
+}
+
+.listings-villa-location {
+  display: flex;
+  align-items: center;
 }
 
 .listings-card-user {
