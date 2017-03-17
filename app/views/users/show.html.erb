@@ -6,12 +6,7 @@
         <div id ="profile-info">
           <h2> Profile Info </h2>
           <br>
-          <% if @user.photo? %>
-            <%= cl_image_tag(@user.photo.path, { class: "avatar", id: "profilep" }) %>
-          <% else %>
-            <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/100x100" %>
-            <%= image_tag avatar_url, class: "avatar", id: "profilep" %>
-           <% end %>
+          <%= user_picture_avatar(@user, "profilep")  %>
           <p>
           <ul>
             <li><%= @user.first_name %> <%= @user.last_name %> </li>
@@ -134,13 +129,11 @@
                 <% @villa = Villa.find(booking.villa_id) %>
                 <% @user = User.find(booking.user_id) %>
                 <div class="villa-card">
-                  <% if @villa.photo? %>
-                  <div class="listings-card"><%= cl_image_path @villa.photo.path, height: 100, width: 200, crop: :fill %></div>
-                  <% else %>
+
                     <div class="listings-card" style="background-image:
                      url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
                     </div>
-                  <% end %>
+
                 </div>
                 <div class="pending-card-description">
                   <div class="user-name"><%= @user.first_name + @user.last_name %></div>

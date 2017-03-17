@@ -116,12 +116,11 @@
             <%@reviews.each do |review| %>
               <div class="review-card">
                 <div class="review-avatar">
-                  <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/70x70" %>
-                  <%= image_tag avatar_url, {class: "img-circle"}%>
+                  <%= user_picture_avatar(review.user, "avatar-review-bordered") %>
                 </div>
                 <div class="content">
                   <div class="review-name">
-                    <strong><%= review.user.email  %></strong>, <%=review.created_at.strftime("on %m/%d/%Y")  %>
+                    <strong><%= review.user.first_name  %></strong>, <%=review.created_at.strftime("on %m/%d/%Y")  %>
                   </div>
                   <div class="review-stars">
                     <%review.rating.to_i.times { %>
@@ -177,4 +176,5 @@
           <% end %>
       </div>
     </div>
+    <!-- end of booking form -->
 

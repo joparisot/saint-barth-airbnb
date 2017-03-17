@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     @villas = Villa.where(user_id: @user.id)
     villas_id = []
     @villas.each do |villa|
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     # I take bookings where villa_id belongs to all the ids from @villas (which are my villas)
   end
 
+  #to-do: Protect the edit with authentification
   def edit
     @user = User.find(params[:id])
   end
