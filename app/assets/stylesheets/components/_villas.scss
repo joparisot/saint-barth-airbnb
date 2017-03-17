@@ -60,6 +60,12 @@
 }
 
 
+.show-card {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
 #show-back-link{
   margin-right: -15px;
   border: hidden;

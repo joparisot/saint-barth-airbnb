@@ -24,7 +24,7 @@
                 </div>
                 <div class="villa-icon-card">
                   <%= image_tag "room.svg", class: "villa-icon" %>
-                  <%= @villa.number_of_rooms %> Bedrooms
+                  <%= @villa.number_of_rooms %> Rooms
                 </div>
                 <div class="villa-icon-card">
                   <%= image_tag "bed.svg", class: "villa-icon" %>
@@ -46,13 +46,13 @@
       </div>
 
       <!-- Villa characteristics -->
-      <div class="villa-features-container show-padding separator ">
-        <div class="villa-card">
+      <div class="villa-features-container show-padding separator">
+        <div class="show-card">
           <div>
             The space
           </div>
         </div>
-        <div class="villa-card">
+        <div class="show-card text-align">
           <div>
             Accomodates: <strong><%= @villa.number_of_guests %></strong>
           </div>
@@ -60,13 +60,13 @@
             Bathrooms: <strong><%= @villa.number_of_bathrooms %></strong>
           </div>
           <div>
-            Bedrooms: <strong><%= @villa.number_of_rooms %></strong>
+            Rooms: <strong><%= @villa.number_of_rooms %></strong>
           </div>
           <div>
             Beds: <strong><%= @villa.number_of_beds %></strong>
           </div>
         </div>
-        <div class="villa-card">
+        <div class="show-card">
           <div>
             Check-in: <strong><%= @villa.arrival_time %></strong>
           </div>
@@ -76,12 +76,12 @@
         </div>
       </div>
       <div class="villa-features-container show-padding separator">
-        <div class="villa-card">
+        <div class="show-card">
           <div>
             Amenities
           </div>
         </div>
-        <div class="villa-card">
+        <div class="show-card">
           <div>
             Pool: <strong><%= @villa.pool %></strong>
           </div>
@@ -89,15 +89,15 @@
             Heated pool: <strong><%= @villa.heated_pool %></strong>
           </div>
           <div>
-            Bedrooms: <strong><%= @villa.jacuzzi %></strong>
+            Jacuzzi: <strong><%= @villa.jacuzzi %></strong>
           </div>
           <div>
-            Beds: <strong><%= @villa.parking %></strong>
+            Parking: <strong><%= @villa.parking %></strong>
           </div>
         </div>
-        <div class="villa-card">
+        <div class="show-card">
           <div>
-            Check-in: <strong><%= @villa.wifi %></strong>
+            Wifi: <strong><%= @villa.wifi %></strong>
           </div>
           <div>
             Smoking allowed: <strong><%= @villa.smoking_allowed %></strong>
