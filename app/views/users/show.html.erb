@@ -35,15 +35,18 @@
                 <div class="villa-name"><strong><%= villa.name %></strong></div>
                 <div class="villa-location"><%= villa.address %></div>
                 <div class="villa-price"><%= villa.price.to_i %>€</div>
+                <div class="villa-links"><%= link_to "Edit", edit_villa_path(villa) %>|<%= link_to "Delete", villa_path(villa), method: :delete, data: {confirm: "Are you sure to delete this villa permanently"} %>
+                </%>
               </div>
               </div>
             <% end %>
+            </div>
           </div>
-        </div>
-        <% end %>
-        <% end %>
-        <div class="bottom-button">
+          <% end %>
+          <% end %>
+          <div class="bottom-button">
           <%= link_to "Add Listing", new_villa_path, class: "navbar-wagon-button btn"%>
+          </div>
         </div>
       </div>
     </div>
@@ -94,8 +97,8 @@
         <% if @notifs == 0 %>
           <div class="request_notif">0 pending requests at the moment</div>
         <% else %>
+          <div class="col-xs-12">
           <% @bookings_as_a_host.each do |booking| %>
-            <div class="col-xs-12">
               <div class="host-pending-wrapper">
                 <% @villa = Villa.find(booking.villa_id) %>
                 <% @user = User.find(booking.user_id) %>
@@ -143,12 +146,12 @@
                   <div class="booking-dates">[<%= booking.start_date%> - <%= booking.end_date%>]</div>
                 </div>
                 <div class="bookings-status-card">
-                  <% if booking.status == "pending" %>
-                    <%= image_tag "pending.svg", class: "status"%>
+                  <% if booking.status == "Approved" %>
+                    <%= image_tag "approved.svg", class: "status"%>
                   <% elsif booking.status == "Rejected" %>
                     <%= image_tag "rejected.svg", class: "status"%>
                   <% else %>
-                    <%= image_tag "approved.svg", class: "status" %>
+                    <%= image_tag "pending.svg", class: "status" %>
                   <% end %>
                 </div>
               </div>
