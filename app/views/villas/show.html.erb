@@ -3,47 +3,49 @@
   <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8" id="description">
-      <div class="separator">
-        <div class="show-padding" id="summary">
-          <h2>
-            <div id="user-image">
-              <img src="<% @villa.user.facebook_picture_url %>" alt="">
-            </div>
-          </h2>
-        <div>
-          <h2>
-            <%= @villa.name %>
-          </h2>
-          <p>
-            <%= @villa.address %>
-          </p>
-            <div class="villa-icon-container row">
-              <div class="villa-icon-card col-xs-12 col-md-8">
+      <!-- summary = user image villa and overview icons -->
+      <div class="show-padding separator" id="summary">
+        <div id="user-image">
+          <% user_url =  @villa.user.facebook_picture_url || "http://placehold.it/70x70" %>
+          <%= image_tag user_url, {class: "img-circle"} %>
+        </div>
+
+        <div id="villa-overview">
+          <h2><%= @villa.name %></h2>
+          <p><%= @villa.address %></p>
+            <div class="villa-icon-container">
+              <div class="villa-icon-card">
                 <%= image_tag "villa.svg", class: "villa-icon" %>
                 <%= @villa.category %> Villa
               </div>
-              <div class="villa-icon-card col-xs-12 col-md-8">
+              <div class="villa-icon-card">
                 <%= image_tag "guests.png", class: "villa-icon" %>
                 <%= @villa.number_of_guests %> Guests
               </div>
-              <div class="villa-icon-card col-xs-12 col-md-8">
+              <div class="villa-icon-card">
                 <%= image_tag "room.svg", class: "villa-icon" %>
                 <%= @villa.number_of_rooms %> Bedrooms
               </div>
-              <div class="villa-icon-card col-xs-12 col-md-8">
+              <div class="villa-icon-card">
                 <%= image_tag "bed.svg", class: "villa-icon" %>
                 <%= @villa.number_of_beds %> Beds
               </div>
             </div>
           </div>
         </div>
-      </div>
+    <!-- end of summary -->
+
+      <!-- spacing -->
       <br><br><br>
+      <!-- spacing -->
+
       <div class="show-padding separator text-justify">
         <strong><p>About this villa</p></strong><br>
+        <!-- Replace with user description -->
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda necessitatibus, nemo asperiores non quibusdam laudantium accusantium iure cum consectetur nobis a et mollitia accusamus rerum, eius minima quaerat praesentium quia.</p>
       </div>
 
+      <!-- Villa characteristics -->
       <div class="villa-features-container show-padding separator">
         <div class="villa-card">
           <div>
@@ -102,9 +104,42 @@
           </div>
         </div>
       </div>
+      <!-- Villa characteristics -->
       <div class="show-padding" id="show-back-link">
           <%= link_to "Back", villas_path %>
       </div>
+
+      <!-- reviews -->
+
+        <div class="row">
+          <div class="col-xs-12 ">
+            <%@reviews.each do |review| %>
+              <div class="review-card">
+                <div class="review-avatar">
+                  <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/70x70" %>
+                  <%= image_tag avatar_url, {class: "img-circle"}%>
+                </div>
+                <div class="content">
+                  <div class="review-name">
+                    <strong><%= review.user.email  %></strong>, <%=review.created_at.strftime("on %m/%d/%Y")  %>
+                  </div>
+                  <div class="review-stars">
+                    <%review.rating.to_i.times { %>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                    <% } %>
+                  </div>
+                  <div class="review-content">
+                    <%=  review.content %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+      <!-- end of reviews -->
+
+      <!-- Map -->
       <div id="map" style="height: 600px;"></div>
         <% content_for(:after_js) do %>
           <%= javascript_tag do %>
@@ -124,7 +159,12 @@
           <% end %>
         <% end %>
     </div>
+    <!-- end of villa column -->
+    <!-- spacing -->
     <br><br><br>
+    <!-- spacing -->
+
+    <!-- start of booking form -->
     <div class="col-xs-12 col-md-4" id="booking-info-container">
       <div id="booking-info">
           <%= simple_form_for [@villa, @booking] do |f| %>
@@ -135,23 +175,9 @@
 
             <%= f.submit "Book", class: "btn btn-primary" %>
           <% end %>
-    <br>
-    <div>
-        <%= link_to "BOOK", new_villa_booking_path(@villa), class: "villa-btn-container" %>
-    <div class="villa-card">
-      <div>
-        Pool: <strong><%= @villa.pool %></strong>
-      </div>
-      <div>
-        Heated pool: <strong><%= @villa.heated_pool %></strong>
-      </div>
-      <div>
-        Bedrooms: <strong><%= @villa.jacuzzi %></strong>
-      </div>
-      <div>
-        Beds: <strong><%= @villa.parking %></strong>
       </div>
     </div>
+<<<<<<< HEAD
     </div>
   </div>
 
@@ -249,8 +275,7 @@
       </div>
      </div>
      <!-- end of reviews -->
+=======
+>>>>>>> c56185101ba7b91e4f3c323e68ccfbcc7ea302bf
 
 
-<!-- <div>
-  <%= link_to "BOOK", new_villa_booking_path(@villa), id:"book", class: "show-padding" %>
-</div> -->
