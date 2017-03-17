@@ -64,6 +64,7 @@
                     <div class="villa-name"><strong><%= link_to @villa.name, villa_path(@villa) %></strong></div>
                     <div class="villa-location"><%= link_to @villa.address, villa_path(@villa) %></div>
                     <div class="booking-dates">[<%= booking.start_date%> - <%= booking.end_date%>]</div>
+                    <div class="review-link"> <%= link_to "review",  new_booking_review_path(booking.id) %></div>
                   </div>
                   <div class="bookings-status-card">
                     <% if booking.status == "pending" %>
