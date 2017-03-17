@@ -1,38 +1,38 @@
 <div id="container">
   <%= render 'carroussel' %>
   <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-8" id="description">
-      <!-- summary = user image villa and overview icons -->
-      <div class="show-padding separator" id="summary">
-        <div id="user-image">
-          <% user_url =  @villa.user.facebook_picture_url || "http://placehold.it/70x70" %>
-          <%= image_tag user_url, {class: "img-circle"} %>
-        </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-8" id="description">
+        <!-- summary = user image villa and overview icons -->
+        <div class="show-padding separator" id="summary">
+          <div id="user-image">
+            <% user_url =  @villa.user.facebook_picture_url || "http://placehold.it/70x70" %>
+            <%= image_tag user_url, {class: "img-circle"} %>
+          </div>
 
-        <div id="villa-overview">
-          <h2><%= @villa.name %></h2>
-          <p><%= @villa.address %></p>
-            <div class="villa-icon-container">
-              <div class="villa-icon-card">
-                <%= image_tag "villa.svg", class: "villa-icon" %>
-                <%= @villa.category %> Villa
-              </div>
-              <div class="villa-icon-card">
-                <%= image_tag "guests.png", class: "villa-icon" %>
-                <%= @villa.number_of_guests %> Guests
-              </div>
-              <div class="villa-icon-card">
-                <%= image_tag "room.svg", class: "villa-icon" %>
-                <%= @villa.number_of_rooms %> Bedrooms
-              </div>
-              <div class="villa-icon-card">
-                <%= image_tag "bed.svg", class: "villa-icon" %>
-                <%= @villa.number_of_beds %> Beds
+          <div id="villa-overview">
+            <h2><%= @villa.name %></h2>
+            <p><%= @villa.address %></p>
+              <div class="villa-icon-container">
+                <div class="villa-icon-card">
+                  <%= image_tag "villa.svg", class: "villa-icon" %>
+                  <%= @villa.category %> Villa
+                </div>
+                <div class="villa-icon-card">
+                  <%= image_tag "guests.png", class: "villa-icon" %>
+                  <%= @villa.number_of_guests %> Guests
+                </div>
+                <div class="villa-icon-card">
+                  <%= image_tag "room.svg", class: "villa-icon" %>
+                  <%= @villa.number_of_rooms %> Bedrooms
+                </div>
+                <div class="villa-icon-card">
+                  <%= image_tag "bed.svg", class: "villa-icon" %>
+                  <%= @villa.number_of_beds %> Beds
+                </div>
               </div>
             </div>
           </div>
-        </div>
     <!-- end of summary -->
 
       <!-- spacing -->
@@ -46,7 +46,7 @@
       </div>
 
       <!-- Villa characteristics -->
-      <div class="villa-features-container show-padding separator">
+      <div class="villa-features-container show-padding separator ">
         <div class="villa-card">
           <div>
             The space
@@ -177,105 +177,4 @@
           <% end %>
       </div>
     </div>
-<<<<<<< HEAD
-    </div>
-  </div>
-
-<<<<<<< HEAD
-  <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-          <%@reviews.each do |review| %>
-            <div class="review-card">
-              <div class="review-avatar">
-                <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/70x70" %>
-                <%= image_tag avatar_url, {class: "img-circle"}%>
-              </div>
-              <div class="content">
-                <div class="review-name">
-                  <strong><%= review.user.email  %></strong>, <%=review.created_at.strftime("on %m/%d/%Y")  %>
-                </div>
-                <div class="review-stars">
-                  <%review.rating.to_i.times { %>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                  <% } %>
-                </div>
-                <div class="review-content">
-                  <%=  review.content %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-     </div>
-=======
-
->>>>>>> e11f75e6bacb8f70a0e945a15772213e5bf44bfb
-
-  <br>
-  <div>
-      <%= link_to "BOOK", new_villa_booking_path(@villa), class: "villa-btn-container" %>
-  </div>
-  <br>
-
-
-
-  <div class="villa-content-disposition" id="map" style="height: 600px;">
-
-    <% content_for(:after_js) do %>
-      <%= javascript_tag do %>
-        $(document).ready(function() {
-          var handler = Gmaps.build('Google');
-          handler.buildMap({ internal: { id: 'map' } }, function() {
-            markers = handler.addMarkers(<%= raw @hash.to_json %>);
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-            if (markers.length == 0) {
-              handler.getMap().setZoom(2);
-            } else if (markers.length == 1) {
-              handler.getMap().setZoom(14);
-            }
-          });
-        });
-      <% end %>
-    <% end %>
-  </div>
-  <div id="show-back-link">
-    <%= link_to "Back", villas_path %>
-  </div>
-</div>
-
- <!-- reviews -->
-  <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-          <%@reviews.each do |review| %>
-            <div class="review-card">
-              <div class="review-avatar">
-                <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/70x70" %>
-                <%= image_tag avatar_url, {class: "img-circle"}%>
-              </div>
-              <div class="content">
-                <div class="review-name">
-                  <strong><%= review.user.email  %></strong>, <%=review.created_at.strftime("on %m/%d/%Y")  %>
-                </div>
-                <div class="review-stars">
-                  <%review.rating.to_i.times { %>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                  <% } %>
-                </div>
-                <div class="review-content">
-                  <%=  review.content %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-     </div>
-     <!-- end of reviews -->
-=======
->>>>>>> c56185101ba7b91e4f3c323e68ccfbcc7ea302bf
-
 
