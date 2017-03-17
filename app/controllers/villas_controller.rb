@@ -35,8 +35,11 @@ def index
   end
 end
 
+
 def show
   @villa = Villa.find(params[:id])
+  @booking = Booking.new
+  @reviews = @villa.reviews
   @hash = Gmaps4rails.build_markers([@villa]) do |villa, marker|
     marker.lat villa.latitude
     marker.lng villa.longitude
@@ -49,10 +52,14 @@ def new
 end
 
 def create
+  # need to put an if if all the validations don't go through
   @villa = Villa.new(villa_params)
   @villa.user = current_user
-  @villa.save
-  redirect_to villa_path(@villa)
+  if @villa.save
+    redirect_to villa_path(@villa)
+  else
+    render 'new'
+  end
 end
 
 def edit
@@ -68,7 +75,7 @@ end
 private
 
 def villa_params
-  params.require(:villa).permit(:name, :address, :price, :photo)
+  params.require(:villa).permit(:name, :address, :price, :photo, images: [])
 end
 
 

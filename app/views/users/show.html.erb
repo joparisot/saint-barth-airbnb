@@ -30,20 +30,14 @@
           <div class="col-xs-12 padded">
             <%= link_to villa_path(villa) do %>
             <div class="listings-card-wrapper">
-                <% if villa.photo? %>
-                  <div class="listings-card" style="background-image:
-                    url('<%= cl_image_path villa.photo.path, height: 100, width: 200, crop: :fill %>')">
-                  </div>
-                <% else %>
-                  <div class="listings-card" style="background-image:
-                   url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
-                  </div>
-                <% end %>
-                <div class="listings-card-description">
-                  <div class="villa-name"><strong><%= villa.name %></strong></div>
-                  <div class="villa-location"><%= villa.address %></div>
-                  <div class="villa-price"><%= villa.price.to_i %>€</div>
-                </div>
+              <div class="listings-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                 url('<%= cl_image_path villa.images.first.path, height: 100, width: 200, crop: :fill %>')">
+              </div>
+              <div class="listings-card-description">
+                <div class="villa-name"><strong><%= villa.name %></strong></div>
+                <div class="villa-location"><%= villa.address %></div>
+                <div class="villa-price"><%= villa.price.to_i %>€</div>
+              </div>
               </div>
             <% end %>
           </div>
@@ -65,13 +59,8 @@
               <% @villa = Villa.find(booking.villa_id) %>
               <%= link_to villa_path(@villa) do %>
                 <div class="listings-card-wrapper margini">
-                  <% if @villa.photo? %>
-                  <div class="listings-card"><%= cl_image_path @villa.photo.path, height: 100, width: 200, crop: :fill %></div>
-                  <% else %>
-                    <div class="listings-card" style="background-image:
-                     url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
-                    </div>
-                  <% end %>
+                  <div class="listings-card"><%= cl_image_path @villa.images.first.path, height: 100, width: 200, crop: :fill %></div>
+
                   <div class="bookings-card-description">
                     <div class="villa-name"><strong><%= link_to @villa.name, villa_path(@villa) %></strong></div>
                     <div class="villa-location"><%= link_to @villa.address, villa_path(@villa) %></div>

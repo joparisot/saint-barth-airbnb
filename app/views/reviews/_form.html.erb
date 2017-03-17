@@ -1,0 +1,7 @@
+<%= simple_form_for [@booking, @review] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+
+  <%= f.submit "Enter review", class: "form-btn btn btn-primary" %>
+<% end %>
