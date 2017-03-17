@@ -20,6 +20,9 @@
       </div>
       <div class="listings">
         <h2> My Listings </h2>
+        <% if @villas.empty? %>
+          <div class="request_notif">no listings at the moment</div>
+        <% else %>
         <% @villas.each do |villa| %>
         <div class="row">
           <div class="col-xs-12 padded">
@@ -37,6 +40,7 @@
             <% end %>
           </div>
         </div>
+        <% end %>
         <% end %>
         <div class="bottom-button">
           <%= link_to "Add Listing", new_villa_path, class: "navbar-wagon-button btn"%>
@@ -76,7 +80,7 @@
         </div>
       </div>
       <div  class ="bottom-button">
-      <%= link_to "Book Another", villas_path, class: "navbar-wagon-button btn"%>
+      <%= link_to "Book Another", root_path, class: "navbar-wagon-button btn"%>
       </div>
       </div>
     </div>
@@ -87,7 +91,7 @@
       <div class="row">
         <div class="col-xs-12">
         <% if @notifs == 0 %>
-          <div class="request_notif"><%= "0 pending requests at the moment" %></div>
+          <div class="request_notif">0 pending requests at the moment</div>
         <% else %>
           <% @bookings_as_a_host.each do |booking| %>
             <div class="col-xs-12">
@@ -95,12 +99,7 @@
                 <% @villa = Villa.find(booking.villa_id) %>
                 <% @user = User.find(booking.user_id) %>
               <div class="user-card">
-                <% if @user.photo? %>
-                  <%= cl_image_tag(@user.photo.path, { class: "user-avatar"}) %>
-                <% else %>
-                  <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/100x100" %>
-                  <%= image_tag avatar_url, class: "user-avatar" %>
-                <% end %>
+                <%= user_picture_avatar(@user, "user-avatar")  %>
               </div>
               <div class="pending-card-description">
                 <div class="user-name"><%= @user.first_name + @user.last_name %></div>
