@@ -58,7 +58,7 @@
               <% @villa = Villa.find(booking.villa_id) %>
               <%= link_to villa_path(@villa) do %>
                 <div class="listings-card-wrapper margini">
-                  <div class="listings-card"><%= cl_image_path @villa.images.first.path, height: 100, width: 200, crop: :fill %></div>
+                  <div class="listings-card"><%= cl_image_tag @villa.images.first.path, height: 100, width: 200, crop: :fill %></div>
 
                   <div class="bookings-card-description">
                     <div class="villa-name"><strong><%= link_to @villa.name, villa_path(@villa) %></strong></div>
@@ -102,8 +102,8 @@
                 <%= user_picture_avatar(@user, "user-avatar")  %>
               </div>
               <div class="pending-card-description">
-                <div class="user-name"><%= @user.first_name + @user.last_name %></div>
-                <div class="user-dob"> Born <%= @user.date_of_birth.to_date %></div>
+                <div class="user-name"><%= @user.first_name %> <%= @user.last_name %></div>
+                <div class="user-dob"> Born <%= @user.date_of_birth %></div>
                 <div class="villa-name"><strong><%= link_to @villa.name, villa_path(@villa) %></strong></div>
                 <div class="booking-guests">Guests: <%= booking.number_of_guests%></div>
                 <div class="booking-dates">[<%= booking.start_date%> - <%= booking.end_date%>]</div>
@@ -135,8 +135,8 @@
 
                 </div>
                 <div class="pending-card-description">
-                  <div class="user-name"><%= @user.first_name + @user.last_name %></div>
-                  <div class="user-dob"> Born <%= @user.date_of_birth.to_date %></div>
+                  <div class="user-name"><%= @user.first_name %> <%= @user.last_name %></div>
+                  <div class="user-dob"> Born <%= @user.date_of_birth %></div>
                   <div class="villa-name"><strong><%= link_to @villa.name, villa_path(@villa) %></strong></div>
                   <div class="booking-guests">Guests: <%= booking.number_of_guests%></div>
                   <div class="booking-dates">[<%= booking.start_date%> - <%= booking.end_date%>]</div>
