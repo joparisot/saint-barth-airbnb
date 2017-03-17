@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Review.destroy_all
 Booking.destroy_all
 Villa.destroy_all
-
 # if !Villa.find_by(name:"Tiwa").nil?
 #   Villa.find_by(name:"Tiwa").destroy
 # end
@@ -23,19 +23,19 @@ Villa.destroy_all
 
 
 # Seeding villas
-urls_walhahlla1 = [
-  # 'https://drive.google.com/open?id=0B4yc0IuB7OxDaXExZEY5RDFtVFU',
-  # 'https://drive.google.com/open?id=0B4yc0IuB7OxDbUJaZ0FnS1JqR1E',
-  # 'https://drive.google.com/open?id=0B4yc0IuB7OxDNU5rVHowbElWSDA',
-  # 'https://drive.google.com/open?id=0B4yc0IuB7OxDczlXaEVTa0l6SE0'
+urls_walhahlla = [
+  "http://res.cloudinary.com/joparisot/image/upload/v1489685242/Walhalla_-_19_jdcykn.jpg",
+  'http://res.cloudinary.com/joparisot/image/upload/v1489685242/Walhalla_-_04_y8e2sb.jpg',
+  'http://res.cloudinary.com/joparisot/image/upload/v1489685242/Walhalla_-_03_ucapfp.jpg',
+  'http://res.cloudinary.com/joparisot/image/upload/v1489685242/Walhalla_-_02_vok5sx.jpg'
 ]
 
-# urls_tiwa = [
-#   'https://drive.google.com/open?id=0B4yc0IuB7OxDR2Z0aHBUenVYYVE',
-#   'https://drive.google.com/open?id=0B4yc0IuB7OxDV1ljcmhDbzJKV2M',
-#   'https://drive.google.com/open?id=0B4yc0IuB7OxDeFU5LWlwWU1kcEU'
-# ]
-
+urls_tiwa = [
+  'http://res.cloudinary.com/joparisot/image/upload/v1489685665/Clair_de_Lune_-_006_nmarea.jpg',
+  'http://res.cloudinary.com/joparisot/image/upload/v1489685665/Clair_de_Lune_-_005_fvhcqj.jpg',
+  'http://res.cloudinary.com/joparisot/image/upload/v1489685665/Clair_de_Lune_-_004_kr7vht.jpg',
+  'http://res.cloudinary.com/joparisot/image/upload/v1489685665/Clair_de_Lune_-_002_bzl2g7.jpg'
+]
 
 
 tiwa = Villa.new(name: "Tiwa",
@@ -48,10 +48,10 @@ tiwa = Villa.new(name: "Tiwa",
                  pool: true,
                  user_id: 1,
 )
+tiwa.image_urls = urls_tiwa
 tiwa.save!
-tiwa.photo_url = 'https://a0.muscache.com/im/pictures/42612027/96c20997_original.jpg?aki_policy=xx_large'
 
-tiwa = Villa.new(name: "Walhalla",
+walhalla = Villa.new(name: "Walhalla",
                  price: "618",
                  address: "Aérodrome de St Jean, Saint Barthelemy",
                  description: "Walhalla is a highly favored and private villa located on the hillside of Pointe Milou. It offers a simply stunning ocean view from all the rooms. Guests enjoy the spacious white villa with a pool, its complete privacy and the size of the estate.",
@@ -61,7 +61,7 @@ tiwa = Villa.new(name: "Walhalla",
                  pool: true,
                  user_id: 1,
 )
-tiwa.save!
-tiwa.photo_url = 'https://a0.muscache.com/im/pictures/96698740/65497b9a_original.jpg?aki_policy=xx_large'
+walhalla.image_urls = urls_walhahlla
+walhalla.save!
 
 # Seeding bookings
