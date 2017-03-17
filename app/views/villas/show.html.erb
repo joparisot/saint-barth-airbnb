@@ -62,13 +62,10 @@
           <div>
             Rooms: <strong><%= @villa.number_of_rooms %></strong>
           </div>
-          <div>
-            Beds: <strong><%= @villa.number_of_beds %></strong>
-          </div>
         </div>
         <div class="show-card">
           <div>
-            Check-in: <strong><%= @villa.arrival_time %></strong>
+            Beds: <strong><%= @villa.number_of_beds %></strong>
           </div>
           <div>
             Property type: <strong><%= @villa.category %></strong>
@@ -83,24 +80,48 @@
         </div>
         <div class="show-card">
           <div>
-            Pool: <strong><%= @villa.pool %></strong>
+            <% if @villa.pool %>
+              <strong> Pool </strong>
+            <% else %>
+              <div class="line-through">Pool</div>
+            <% end %>
           </div>
           <div>
-            Heated pool: <strong><%= @villa.heated_pool %></strong>
+            <% if @villa.heated_pool %>
+              <strong> Heated pool </strong>
+            <% else %>
+              <div class="line-through">Heated pool</div>
+            <% end %>
           </div>
           <div>
-            Jacuzzi: <strong><%= @villa.jacuzzi %></strong>
+            <% if @villa.jacuzzi %>
+              <strong> Jacuzzi </strong>
+            <% else %>
+              <div class="line-through">Jacuzzi</div>
+            <% end %>
           </div>
           <div>
-            Parking: <strong><%= @villa.parking %></strong>
+            <% if @villa.parking %>
+              <strong> Parking </strong>
+            <% else %>
+              <div class="line-through">Parking</div>
+            <% end %>
           </div>
         </div>
         <div class="show-card">
           <div>
-            Wifi: <strong><%= @villa.wifi %></strong>
+            <% if @villa.wifi %>
+              <strong> Wifi </strong>
+            <% else %>
+              <div class="line-through">Wifi</div>
+            <% end %>
           </div>
           <div>
-            Smoking allowed: <strong><%= @villa.smoking_allowed %></strong>
+            <% if @villa.smoking_allowed %>
+              <strong> Smoking allowed </strong>
+            <% else %>
+              <div class="line-through">Smoking allowed</div>
+            <% end %>
           </div>
         </div>
       </div>
