@@ -70,7 +70,7 @@
                     <div class="review-link"> <%= link_to "review",  new_booking_review_path(booking.id) %></div>
                   </div>
                   <div class="bookings-status-card">
-                    <% if booking.status == "pending" %>
+                    <% if booking.status == "Pending" %>
                       <%= image_tag "pending.svg", class: "status"%>
                     <% elsif booking.status == "Rejected" %>
                       <%= image_tag "rejected.svg", class: "status"%>
@@ -99,9 +99,9 @@
         <% else %>
           <div class="col-xs-12">
           <% @bookings_as_a_host.each do |booking| %>
-              <div class="host-pending-wrapper">
-                <% @villa = Villa.find(booking.villa_id) %>
-                <% @user = User.find(booking.user_id) %>
+            <div class="host-pending-wrapper">
+              <% @villa = Villa.find(booking.villa_id) %>
+              <% @user = User.find(booking.user_id) %>
               <div class="user-card">
                 <%= user_picture_avatar(@user, "user-avatar")  %>
               </div>
@@ -122,7 +122,6 @@
         <% end %>
         </div>
       </div>
-
       <div class="row">
         <div class="col-xs-12 ">
           <div class="host-card">
@@ -132,11 +131,9 @@
                 <% @villa = Villa.find(booking.villa_id) %>
                 <% @user = User.find(booking.user_id) %>
                 <div class="villa-card">
-
-                    <div class="listings-card" style="background-image:
-                     url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
-                    </div>
-
+                  <div class="listings-card" style="background-image:
+                   url('http://pinandpin.com/wp-content/uploads/2013/11/395_2CL_2175_VILLA_IVY_x-1200x798.jpg')">
+                  </div>
                 </div>
                 <div class="pending-card-description">
                   <div class="user-name"><%= @user.first_name %> <%= @user.last_name %></div>
@@ -161,6 +158,7 @@
         </div>
       </div>
     </div>
+  </div>
   <div class="container">
     <div class="row" >
       <%= link_to "Back", villas_path %>
