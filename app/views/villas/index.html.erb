@@ -1,6 +1,22 @@
 <%= link_to "Add a villa", new_villa_path %>
 
 <div class="container">
+  <div class="row" id="index-form">
+    <div class="col-xs-12">
+      <div class="form-container">
+        <%= simple_form_for :villa, :url => url_for(:action => 'index', :controller => 'villas'), :method => 'get' do |f| %>
+          <%= f.input :start_date, as: :string, input_html:{class: "datepicker bg-transparent", value: @start_date_search }, label: false %>
+          <%= f.input :end_date, as: :string, input_html:{class: "datepicker bg-transparent",  value: @end_date_search }, label: false %>
+          <%= f.submit 'UPDATE', class: "btn btn-medium padded" %>
+          <% end %>
+          <!-- second hidden form -->
+          <%= simple_form_for :villa do |f| %>
+          <%= f.input :start_date, as: :hidden, input_html:{class: "datepicker bg-transparent", value: @start_date_search }, label: false %>
+          <%= f.input :end_date, as: :hidden, input_html:{class: "datepicker bg-transparent",  value: @end_date_search }, label: false %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   <div class="row">
     <div class="col-xs-12 col-md-6">
       <div class="row">

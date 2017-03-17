@@ -50,6 +50,8 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 
 
   def show
+    @start_date_search = params[:villa][:start_date]
+    @end_date_search = params[:villa][:end_date]
     @villa = Villa.find(params[:id])
     @booking = Booking.new
     @reviews = @villa.reviews
